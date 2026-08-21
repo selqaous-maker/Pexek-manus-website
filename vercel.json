@@ -23,27 +23,27 @@
   "rewrites": [
     {
       "source": "/solutions",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/industries",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/how-it-works",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/industries/kitchens-interior",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/privacy",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/terms",
-      "destination": "/index.html"
+      "destination": "/"
     }
   ],
   "headers": [
