@@ -4,6 +4,7 @@
  */
 import { ArrowDown, ArrowRight, ArrowUpRight, Check, ChevronDown, Menu, Route, ShieldCheck, UsersRound, X } from "lucide-react";
 import { useState } from "react";
+import GlobalEnglishHeader from "@/components/GlobalEnglishHeader";
 
 const groups = [
   {
@@ -60,37 +61,6 @@ function scrollToWorkflow() {
   document.getElementById("industry-standard")?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-function IndustriesHeader() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const closeMenu = () => setMenuOpen(false);
-  return (
-    <header className="site-header industries-header">
-      <div className="container flex h-[76px] items-center justify-between">
-        <a className="brand-mark" href="/" aria-label="PEXEK homepage">
-          <img src="/assets/NeonBlueGeometricPEmblem.webp" alt="" className="brand-symbol h-10 w-10 object-contain" />
-          <span className="brand-wordmark"><strong className="font-display">PEXEK</strong><small>Workflow system</small></span>
-        </a>
-        <nav className="hidden items-center gap-7 text-[0.86rem] font-medium lg:flex" aria-label="Primary navigation">
-          <a href="/solutions" className="nav-link">Solutions</a>
-          <a href="/industries" aria-current="page" className="nav-link industries-nav-active">Industries</a>
-          <a href="/how-it-works" className="nav-link">How it works</a>
-          <a href="/#about" className="nav-link">About</a>
-        </nav>
-        <a href="/#assessment" className="hidden h-11 items-center justify-center gap-2 rounded-md bg-[#18c9ff] px-5 text-[0.82rem] font-semibold text-[#03101f] shadow-[0_10px_28px_rgba(15,183,255,0.25)] hover:bg-[#74ddff] lg:inline-flex">See How PEXEK Could Work for Your Business <ArrowUpRight className="size-4" /></a>
-        <button className="inline-flex size-11 items-center justify-center rounded-md border border-[#375572] bg-[#08172d] text-white lg:hidden" onClick={() => setMenuOpen((open) => !open)} aria-expanded={menuOpen} aria-label="Toggle navigation">
-          {menuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
-        </button>
-      </div>
-      {menuOpen && <div className="mobile-nav lg:hidden">
-        <a href="/solutions" onClick={closeMenu} className="border-b border-[#17334e] py-4 text-left text-lg font-medium">Solutions</a>
-        <a href="/industries" aria-current="page" onClick={closeMenu} className="border-b border-[#17334e] py-4 text-left text-lg font-medium">Industries</a>
-        <a href="/how-it-works" onClick={closeMenu} className="border-b border-[#17334e] py-4 text-left text-lg font-medium">How it works</a>
-        <a href="/#about" onClick={closeMenu} className="border-b border-[#17334e] py-4 text-left text-lg font-medium">About</a>
-        <a href="/#assessment" onClick={closeMenu} className="mt-5 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#18c9ff] text-[#03101f]">See How PEXEK Could Work for Your Business <ArrowUpRight className="size-4" /></a>
-      </div>}
-    </header>
-  );
-}
 
 export default function Industries() {
   const schema = {
@@ -108,7 +78,7 @@ export default function Industries() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="grain" aria-hidden="true" />
       <div className="global-route-signature" aria-hidden="true"><span>INPUT</span><i /><b /><i /><b /><i /><b /><i /><b className="handoff" /><span>HANDOFF</span></div>
-      <IndustriesHeader />
+      <GlobalEnglishHeader activeRoute="/industries" />
       <main>
         <section className="industries-hero">
           <div className="container relative grid items-center gap-12 pb-20 pt-12 lg:grid-cols-[1.02fr_.98fr] lg:pb-28 lg:pt-20">
@@ -152,7 +122,7 @@ export default function Industries() {
 
         <section className="industries-light-section industries-assessment-section"><div className="container"><div className="industries-assessment-layout"><div><div className="eyebrow"><span className="eyebrow-count">06</span> Workflow assessment</div><h2 className="industries-section-title mt-5">See how PEXEK could work for your business.</h2><p className="mt-6">Tell us which industry context you operate in, where enquiries arrive today and what your team needs to happen next. PEXEK will review the context before recommending a suitable starting workflow.</p><a href="/#assessment" className="industries-primary-cta light mt-8">See How PEXEK Could Work for Your Business <ArrowRight className="size-4" /></a><p className="industries-final-disclosure">No automatic scope is assumed. The workflow is discussed and defined around the business context, applicable requirements and human ownership.</p></div><div className="industries-faq" id="industry-faq">{faqs.map(([question, answer]) => <details key={question}><summary>{question}<ChevronDown className="size-4" /></summary><p>{answer}</p></details>)}</div></div></div></section>
       </main>
-      <footer className="bg-[#020718] py-10 text-[#c6d4ce]"><div className="container flex flex-col gap-8 md:flex-row md:items-end md:justify-between"><div><a href="/" className="flex items-center gap-2 text-white"><img src="/assets/NeonBlueGeometricPEmblem.webp" alt="" className="site-footer-logo size-9" /><span className="font-display font-semibold tracking-[-0.05em]">PEXEK</span></a><p className="mt-3 max-w-sm text-sm leading-6 text-[#9caea7]">Managed customer-conversation workflows with approved knowledge and human control.</p></div><div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-[#aebdb7]"><a href="/solutions">Solutions</a><a href="/industries">Industries</a><a href="/how-it-works">How it works</a><a href="/#assessment">Contact</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><span>© {new Date().getFullYear()} PEXEK</span></div></div></footer>
+      <footer className="bg-[#020718] py-10 text-[#c6d4ce]"><div className="container flex flex-col gap-8 md:flex-row md:items-end md:justify-between"><div><a href="/" className="flex items-center gap-2 text-white"><img src="/assets/NeonBlueGeometricPEmblem.webp" alt="" className="site-footer-logo size-9" /><span className="font-display font-semibold tracking-[-0.05em]">PEXEK</span></a><p className="mt-3 max-w-sm text-sm leading-6 text-[#9caea7]">Managed customer-conversation workflows with approved knowledge and human control.</p></div><div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-[#aebdb7]"><a href="/solutions">Solutions</a><a href="/industries">Industries</a><a href="/how-it-works">How it works</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><span>© {new Date().getFullYear()} PEXEK</span></div></div></footer>
     </div>
   );
 }

@@ -8,16 +8,6 @@
       "source": "/voice-ai-agents",
       "destination": "/",
       "permanent": true
-    },
-    {
-      "source": "/about",
-      "destination": "/#about",
-      "permanent": true
-    },
-    {
-      "source": "/contact",
-      "destination": "/#assessment",
-      "permanent": true
     }
   ],
   "rewrites": [
@@ -35,6 +25,14 @@
     },
     {
       "source": "/industries/kitchens-interior",
+      "destination": "/"
+    },
+    {
+      "source": "/about",
+      "destination": "/"
+    },
+    {
+      "source": "/contact",
       "destination": "/"
     },
     {

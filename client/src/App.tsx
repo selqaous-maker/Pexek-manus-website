@@ -7,12 +7,14 @@ import { Route, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import LegalNotice from "./pages/LegalNotice";
+import About from "./pages/About";
 
 const Home = lazy(() => import("./pages/Home"));
 const KitchensInterior = lazy(() => import("./pages/KitchensInterior"));
 const Solutions = lazy(() => import("./pages/Solutions"));
 const Industries = lazy(() => import("./pages/Industries"));
 const HowItWorks = lazy(() => import("./pages/HowItWorks"));
+const Contact = lazy(() => import("./pages/Contact"));
 
 const SITE_URL = "https://pexek.com";
 
@@ -45,6 +47,18 @@ const PAGE_METADATA: Record<string, { title: string; description: string; canoni
     title: "PEXEK Lead-to-Showroom | Cuisines & Aménagement Intérieur au Maroc",
     description: "PEXEK aide les showrooms de cuisines et d’aménagement intérieur à organiser les demandes de leur site, structurer le contexte et préparer la prochaine action commerciale.",
     canonical: `${SITE_URL}/industries/kitchens-interior`,
+    indexable: true,
+  },
+  "/about": {
+    title: "About PEXEK | Managed Customer-Conversation Workflows",
+    description: "Learn how PEXEK assesses, designs, configures and supports managed customer-conversation workflows using selected third-party technology and human control.",
+    canonical: `${SITE_URL}/about`,
+    indexable: true,
+  },
+  "/contact": {
+    title: "Contact PEXEK | Choose the Right Next Step",
+    description: "Contact PEXEK about a workflow assessment, general enquiry, WhatsApp message or company connection. Choose the route that fits your request.",
+    canonical: `${SITE_URL}/contact`,
     indexable: true,
   },
   "/privacy": {
@@ -110,6 +124,8 @@ function Router() {
       <Route path="/solutions" component={Solutions} />
       <Route path="/industries" component={Industries} />
       <Route path="/how-it-works" component={HowItWorks} />
+      <Route path="/about" component={About} />
+      <Route path="/contact" component={Contact} />
       <Route path="/industries/kitchens-interior" component={KitchensInterior} />
       <Route path="/privacy">{() => <LegalNotice type="privacy" />}</Route>
       <Route path="/terms">{() => <LegalNotice type="terms" />}</Route>

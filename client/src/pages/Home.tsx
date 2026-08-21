@@ -20,6 +20,7 @@ import {
   X,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import GlobalEnglishHeader from "@/components/GlobalEnglishHeader";
 
 const industryCards = [
   { title: "Kitchens & Interior", detail: "From project enquiry to the next commercial action", number: "01" },
@@ -127,39 +128,10 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#f4f8fc] text-[#081528]">
+    <div className="homepage-page min-h-screen overflow-x-hidden bg-[#f4f8fc] text-[#081528]">
       <div className="grain" aria-hidden="true" />
       <div className="global-route-signature" aria-hidden="true"><span>INPUT</span><i /><b /><i /><b /><i /><b /><i /><b /><i /><b className="handoff" /><span>HANDOFF</span></div>
-      <header className="site-header">
-        <div className="container flex h-[76px] items-center justify-between">
-          <button className="brand-mark" onClick={() => scrollToId("top")} aria-label="PEXEK — Back to top">
-            <img src="/assets/NeonBlueGeometricPEmblem.webp" alt="" className="brand-symbol h-10 w-10 object-contain" />
-            <span className="brand-wordmark"><strong className="font-display">PEXEK</strong><small>Workflow system</small></span>
-          </button>
-          <nav className="hidden items-center gap-7 text-[0.86rem] font-medium lg:flex" aria-label="Primary navigation">
-            <a href="/solutions" className="nav-link">Solutions</a>
-            <a href="/how-it-works" className="nav-link">How it works</a>
-            <a href="/industries" className="nav-link">Industries</a>
-            <button onClick={() => scrollToId("about")} className="nav-link">About</button>
-          </nav>
-          <Button onClick={() => scrollToId("assessment")} className="hidden h-11 rounded-md bg-[#18c9ff] px-5 text-[0.82rem] font-semibold text-[#03101f] shadow-[0_10px_28px_rgba(15,183,255,0.25)] hover:bg-[#74ddff] lg:inline-flex">
-            See How PEXEK Could Work <ArrowUpRight className="size-4" />
-          </Button>
-          <button className="inline-flex size-11 items-center justify-center rounded-md border border-[#375572] bg-[#08172d] text-white lg:hidden" onClick={() => setMenuOpen((open) => !open)} aria-expanded={menuOpen} aria-label="Toggle navigation">
-            {menuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
-          </button>
-        </div>
-        {menuOpen && (
-          <div className="mobile-nav lg:hidden">
-            <a href="/solutions" onClick={() => setMenuOpen(false)} className="border-b border-[#17334e] py-4 text-left text-lg font-medium">Solutions</a>
-{[['How it works', '/how-it-works'], ['About', 'about']].map(([label, id]) => (
-               id.startsWith('/') ? <a key={id} href={id} onClick={() => setMenuOpen(false)} className="border-b border-[#17334e] py-4 text-left text-lg font-medium">{label}</a> : <button key={id} onClick={() => { setMenuOpen(false); scrollToId(id); }} className="border-b border-[#17334e] py-4 text-left text-lg font-medium">{label}</button>
-             ))}
-            <a href="/industries" onClick={() => setMenuOpen(false)} className="border-b border-[#17334e] py-4 text-left text-lg font-medium">Industries</a>
-            <Button onClick={() => { setMenuOpen(false); scrollToId("assessment"); }} className="mt-5 h-12 rounded-md bg-[#18c9ff] text-[#03101f]">See How PEXEK Could Work <ArrowUpRight className="size-4" /></Button>
-          </div>
-        )}
-      </header>
+      <GlobalEnglishHeader />
 
       <main id="top">
         <section className="hero-section">
@@ -216,7 +188,7 @@ export default function Home() {
         <section id="assessment" className="assessment-section"><div className="container grid gap-12 lg:grid-cols-[0.72fr_1.28fr]"><div><div className="eyebrow"><span className="eyebrow-count">07</span> Workflow assessment</div><h2 className="section-title mt-5">See how PEXEK could work for your business.</h2><p className="mt-6 max-w-md leading-7 text-[#60706a]">Tell us where enquiries arrive today and what needs to happen next. PEXEK reviews the fit before suggesting any scoped workflow.</p><div className="mt-9 rounded-md border border-[#d8ddd5] bg-white/70 p-5 text-sm leading-6 text-[#5c6b66]"><strong className="block text-[#223530]">What happens next</strong> Your request is reviewed manually. Submitting this form does not start an automatic marketing campaign or guarantee acceptance for a PEXEK pilot.</div><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="assessment-contact-link"><MessageCircleMore className="size-4" /> Prefer WhatsApp? Start a conversation <ArrowUpRight className="size-3.5" /></a></div><form id="workflow-assessment-form" action={FORMSPREE_ENDPOINT} method="POST" onSubmit={handleAssessmentSubmit} className={`assessment-form${formStatus === "submitting" ? " is-submitting" : ""}`} aria-describedby="assessment-message" aria-busy={formStatus === "submitting"}><input type="hidden" name="_subject" value="New PEXEK Workflow Assessment" /><input type="hidden" name="form_source" value="PEXEK Global Homepage" /><input type="hidden" name="page_url" value="" /><input className="form-honeypot" type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" /><div className="assessment-route" aria-hidden="true"><span>Conversation</span><i /><b /><i /><b /><i /><b className="handoff" /><span>Assessment</span></div><div className="grid gap-5 sm:grid-cols-2"><label className="form-label">Full name<input required name="full_name" autoComplete="name" className="form-input" placeholder="Your name" /></label><label className="form-label">Company<input required name="company" autoComplete="organization" className="form-input" placeholder="Company name" /></label><label className="form-label">Work email<input required type="email" name="email" autoComplete="email" className="form-input" placeholder="name@company.com" /></label><label className="form-label">Country<select required name="country" className="form-input default-select"><option value="">Select country</option><option>Morocco</option><option>United Kingdom</option><option>United Arab Emirates</option><option>Other</option></select></label><label className="form-label">Industry<select required name="industry" value={selectedIndustry} onChange={(event) => setSelectedIndustry(event.target.value)} className="form-input default-select"><option value="">Select industry</option>{industryCards.map((item) => <option key={item.title}>{item.title}</option>)}<option>Other qualified industry</option></select></label><label className="form-label">Approx. weekly enquiries<select required name="weekly_enquiries" className="form-input default-select"><option value="">Select volume</option><option>0–10</option><option>11–30</option><option>31–60</option><option>61–150</option><option>150+</option></select></label></div><label className="form-label mt-5 block">What needs to improve?<textarea name="workflow_problem" required className="form-input min-h-30 resize-y pt-3" placeholder="For example: slow first responses, incomplete context, appointment requests, follow-up or routing." /></label><label className="mt-5 flex items-start gap-3 text-xs leading-5 text-[#65736e]"><input required name="privacy_consent" value="yes" type="checkbox" className="mt-0.5 size-4 accent-[#087fe5]" /><span>I agree that PEXEK may process the submitted assessment information through Formspree to review and respond to this request, in line with the <a href="/privacy" className="font-semibold text-[#087fe5] underline underline-offset-2">Privacy Notice</a> and <a href="/terms" className="font-semibold text-[#087fe5] underline underline-offset-2">Terms</a>.</span></label><div id="assessment-message" className="mt-5" aria-live="polite">{formStatus === "error" && <p role="alert" className="form-message form-message-error">{formError}</p>}{formStatus === "success" && <p role="status" className="form-message form-message-success">Thank you. Your workflow assessment has been received. PEXEK will review the information and contact you if the workflow appears to be a suitable fit.</p>}</div><div className="mt-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center"><Button disabled={formStatus === "submitting"} type="submit" className="h-12 rounded-md bg-[#087fe5] px-6 font-semibold text-white hover:bg-[#0569bf] disabled:cursor-not-allowed disabled:opacity-70">{formStatus === "submitting" ? "Submitting your assessment…" : "Request a Workflow Assessment"} <ArrowRight className="size-4" /></Button></div></form></div></section>
       </main>
 
-      <footer className="bg-[#020718] py-10 text-[#c6d4ce]"><div className="container flex flex-col gap-8 md:flex-row md:items-end md:justify-between"><div><div className="flex items-center gap-2 text-white"><img src="/assets/NeonBlueGeometricPEmblem.webp" alt="" className="site-footer-logo size-9" /><span className="font-display font-semibold tracking-[-0.05em]">PEXEK</span></div><p className="mt-3 max-w-sm text-sm leading-6 text-[#9caea7]">Managed customer-conversation workflows with approved knowledge and human control.</p></div><div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-[#aebdb7]"><a href="/solutions">Solutions</a><a href="/industries">Industries</a><button onClick={() => scrollToId("assessment")}>Contact</button><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">WhatsApp</a><a href={PEXEK_LINKEDIN_URL} target="_blank" rel="noopener noreferrer">PEXEK on LinkedIn</a><a href="mailto:hello@pexek.com">hello@pexek.com</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><span>© {new Date().getFullYear()} PEXEK</span></div></div></footer>
+      <footer className="bg-[#020718] py-10 text-[#c6d4ce]"><div className="container flex flex-col gap-8 md:flex-row md:items-end md:justify-between"><div><div className="flex items-center gap-2 text-white"><img src="/assets/NeonBlueGeometricPEmblem.webp" alt="" className="site-footer-logo size-9" /><span className="font-display font-semibold tracking-[-0.05em]">PEXEK</span></div><p className="mt-3 max-w-sm text-sm leading-6 text-[#9caea7]">Managed customer-conversation workflows with approved knowledge and human control.</p></div><div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-[#aebdb7]"><a href="/solutions">Solutions</a><a href="/industries">Industries</a><a href="/contact">Contact</a><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">WhatsApp</a><a href={PEXEK_LINKEDIN_URL} target="_blank" rel="noopener noreferrer">PEXEK on LinkedIn</a><a href="mailto:hello@pexek.com">hello@pexek.com</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><span>© {new Date().getFullYear()} PEXEK</span></div></div></footer>
     </div>
   );
 }

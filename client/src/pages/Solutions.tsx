@@ -20,6 +20,7 @@ import {
   X,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import GlobalEnglishHeader from "@/components/GlobalEnglishHeader";
 
 const categories = [
   { icon: Phone, name: "AI Voice Agents", description: "Support selected inbound conversations and approved outbound workflows using defined information, clear boundaries and human escalation when needed.", boundary: "Channel use, consent, escalation and operating requirements depend on the agreed scope and applicable requirements." },
@@ -52,38 +53,6 @@ function scrollToId(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-function SolutionsHeader() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const closeMenu = () => setMenuOpen(false);
-
-  return (
-    <header className="site-header solutions-header">
-      <div className="container flex h-[76px] items-center justify-between">
-        <a className="brand-mark" href="/" aria-label="PEXEK homepage">
-          <img src="/assets/NeonBlueGeometricPEmblem.webp" alt="" className="brand-symbol h-10 w-10 object-contain" />
-          <span className="brand-wordmark"><strong className="font-display">PEXEK</strong><small>Workflow system</small></span>
-        </a>
-        <nav className="hidden items-center gap-7 text-[0.86rem] font-medium lg:flex" aria-label="Primary navigation">
-          <a href="/solutions" aria-current="page" className="nav-link solutions-nav-active">Solutions</a>
-          <a href="/how-it-works" className="nav-link">How it works</a>
-          <a href="/industries" className="nav-link">Industries</a>
-          <a href="/#about" className="nav-link">About</a>
-        </nav>
-        <a href="/#assessment" className="hidden h-11 items-center justify-center gap-2 rounded-md bg-[#18c9ff] px-5 text-[0.82rem] font-semibold text-[#03101f] shadow-[0_10px_28px_rgba(15,183,255,0.25)] hover:bg-[#74ddff] lg:inline-flex">Request a Workflow Assessment <ArrowUpRight className="size-4" /></a>
-        <button className="inline-flex size-11 items-center justify-center rounded-md border border-[#375572] bg-[#08172d] text-white lg:hidden" onClick={() => setMenuOpen((open) => !open)} aria-expanded={menuOpen} aria-label="Toggle navigation">
-          {menuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
-        </button>
-      </div>
-      {menuOpen && <div className="mobile-nav lg:hidden">
-        <a href="/solutions" aria-current="page" onClick={closeMenu} className="border-b border-[#17334e] py-4 text-left text-lg font-medium">Solutions</a>
-        <a href="/how-it-works" onClick={closeMenu} className="border-b border-[#17334e] py-4 text-left text-lg font-medium">How it works</a>
-        <a href="/industries" onClick={closeMenu} className="border-b border-[#17334e] py-4 text-left text-lg font-medium">Industries</a>
-        <a href="/#about" onClick={closeMenu} className="border-b border-[#17334e] py-4 text-left text-lg font-medium">About</a>
-        <a href="/#assessment" onClick={closeMenu} className="mt-5 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#18c9ff] text-[#03101f]">Request a Workflow Assessment <ArrowUpRight className="size-4" /></a>
-      </div>}
-    </header>
-  );
-}
 
 export default function Solutions() {
   const schema = {
@@ -100,7 +69,7 @@ export default function Solutions() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="grain" aria-hidden="true" />
       <div className="global-route-signature" aria-hidden="true"><span>INPUT</span><i /><b /><i /><b /><i /><b /><i /><b className="handoff" /><span>HANDOFF</span></div>
-      <SolutionsHeader />
+      <GlobalEnglishHeader activeRoute="/solutions" />
       <main>
         <section className="solutions-hero">
           <div className="container relative grid items-center gap-12 pb-20 pt-12 lg:grid-cols-[1.02fr_.98fr] lg:pb-28 lg:pt-20">
@@ -155,7 +124,7 @@ export default function Solutions() {
           <div className="container"><div className="solutions-faq-layout"><div className="solutions-section-intro"><div className="eyebrow"><span className="eyebrow-count">06</span> FAQ and assessment</div><h2 className="solutions-section-title mt-5">See how PEXEK could work for your business.</h2><p className="mt-6">Share the conversation source that matters most, the information your team needs and the point where a human should take over. PEXEK will examine the context before proposing a suitable workflow direction.</p><a href="/#assessment" className="solutions-primary-cta dark-text mt-8">Request a Workflow Assessment <ArrowRight className="size-4" /></a><span className="solutions-cta-note">No automatic scope is assumed. The workflow is discussed and defined around your business context.</span></div><div className="solutions-faq-list">{faqs.map(([question, answer], index) => <details key={question} open={index === 0}><summary>{question}<ChevronDown className="size-4" /></summary><p>{answer}</p></details>)}</div></div></div>
         </section>
       </main>
-      <footer className="bg-[#020718] py-10 text-[#c6d4ce]"><div className="container flex flex-col gap-8 md:flex-row md:items-end md:justify-between"><div><div className="flex items-center gap-2 text-white"><img src="/assets/NeonBlueGeometricPEmblem.webp" alt="" className="site-footer-logo size-9" /><span className="font-display font-semibold tracking-[-0.05em]">PEXEK</span></div><p className="mt-3 max-w-sm text-sm leading-6 text-[#9caea7]">Managed customer-conversation workflows with approved knowledge and human control.</p></div><div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-[#aebdb7]"><a href="/solutions">Solutions</a><a href="/industries">Industries</a><a href="/#assessment">Contact</a><a href="https://wa.me/212633323828?text=Hello%20PEXEK%2C%20I%20would%20like%20to%20understand%20how%20a%20customer-conversation%20workflow%20could%20work%20for%20my%20business." target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="https://www.linkedin.com/company/pexek-agency/" target="_blank" rel="noopener noreferrer">PEXEK on LinkedIn</a><a href="mailto:hello@pexek.com">hello@pexek.com</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><span>© {new Date().getFullYear()} PEXEK</span></div></div></footer>
+      <footer className="bg-[#020718] py-10 text-[#c6d4ce]"><div className="container flex flex-col gap-8 md:flex-row md:items-end md:justify-between"><div><div className="flex items-center gap-2 text-white"><img src="/assets/NeonBlueGeometricPEmblem.webp" alt="" className="site-footer-logo size-9" /><span className="font-display font-semibold tracking-[-0.05em]">PEXEK</span></div><p className="mt-3 max-w-sm text-sm leading-6 text-[#9caea7]">Managed customer-conversation workflows with approved knowledge and human control.</p></div><div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-[#aebdb7]"><a href="/solutions">Solutions</a><a href="/industries">Industries</a><a href="/contact">Contact</a><a href="https://wa.me/212633323828?text=Hello%20PEXEK%2C%20I%20would%20like%20to%20understand%20how%20a%20customer-conversation%20workflow%20could%20work%20for%20my%20business." target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="https://www.linkedin.com/company/pexek-agency/" target="_blank" rel="noopener noreferrer">PEXEK on LinkedIn</a><a href="mailto:hello@pexek.com">hello@pexek.com</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><span>© {new Date().getFullYear()} PEXEK</span></div></div></footer>
     </div>
   );
 }

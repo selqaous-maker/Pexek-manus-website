@@ -1,5 +1,7 @@
 import { ArrowDown, ArrowRight, ArrowUpRight, Check, CircleDot, Hand, Sparkles } from "lucide-react";
 
+import GlobalEnglishHeader from "@/components/GlobalEnglishHeader";
+
 const stages = [
   { number: "01", name: "Assess", short: "Understand the current conversation and where it loses momentum.", body: "PEXEK reviews the demand source, the current first response, the information teams repeatedly request, the next action the business wants to prepare and the points where a person must take over." },
   { number: "02", name: "Design", short: "Define the workflow, approved information and boundaries.", body: "Together, the business and PEXEK agree which request types are in scope, which first-level questions are appropriate, what the workflow may say or prepare, and which situations must stop or escalate." },
@@ -53,18 +55,15 @@ function BrandMark() {
   return <a href="/" className="site-brand" aria-label="PEXEK"><img src="/assets/NeonBlueGeometricPEmblem.webp" alt="" className="site-brand-mark" /><span><strong>PEXEK</strong><small>WORKFLOW SYSTEM</small></span></a>;
 }
 
-function SiteHeader() {
-  return <header className="site-header"><div className="container flex items-center justify-between"><BrandMark /><nav className="hidden items-center gap-7 text-[0.86rem] font-medium lg:flex" aria-label="Primary navigation"><a href="/solutions" className="nav-link">Solutions</a><a href="/how-it-works" aria-current="page" className="nav-link how-nav-active">How it works</a><a href="/industries" className="nav-link">Industries</a><a href="/#about" className="nav-link">About</a></nav><a href="/#assessment" className="header-cta">See How PEXEK Could Work for Your Business <ArrowUpRight className="size-4" /></a></div></header>;
-}
 
 function SectionLabel({ number, children }: { number: string; children: React.ReactNode }) {
   return <div className="eyebrow"><span className="eyebrow-count">{number}</span>{children}</div>;
 }
 
 export default function HowItWorks() {
-  return <div className="min-h-screen bg-[#eef3f8] text-[#06152b]">
+  return <div className="how-it-works-page min-h-screen bg-[#eef3f8] text-[#06152b]">
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }} />
-    <SiteHeader />
+    <GlobalEnglishHeader activeRoute="/how-it-works" />
     <main>
       <section className="hiw-hero">
         <div className="container hiw-hero-grid">
@@ -83,6 +82,6 @@ export default function HowItWorks() {
 
       <section className="hiw-section hiw-faq-section"><div className="container hiw-faq-grid"><div className="hiw-faq-intro"><SectionLabel number="06">NEXT STEP</SectionLabel><h2>See how the process could fit your business.</h2><p>Tell PEXEK where customer conversations currently lose momentum, which next action matters and where your team needs clearer context. The assessment starts with the existing workflow—not with a promise to automate everything.</p><a href="/#assessment" className="hiw-primary-cta">See How PEXEK Could Work for Your Business <ArrowRight className="size-4" /></a></div><div className="hiw-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}<ArrowDown className="size-4" /></summary><p>{answer}</p></details>)}</div></div></section>
     </main>
-    <footer className="hiw-footer"><div className="container flex flex-col gap-8 md:flex-row md:items-end md:justify-between"><div><BrandMark /><p className="mt-3 max-w-sm text-sm leading-6 text-[#9caea7]">Managed customer-conversation workflows with approved knowledge and human control.</p></div><div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-[#aebdb7]"><a href="/solutions">Solutions</a><a href="/industries">Industries</a><a href="/how-it-works" aria-current="page">How it works</a><a href="/#assessment">Contact</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><span>© {new Date().getFullYear()} PEXEK</span></div></div></footer>
+    <footer className="hiw-footer"><div className="container flex flex-col gap-8 md:flex-row md:items-end md:justify-between"><div><BrandMark /><p className="mt-3 max-w-sm text-sm leading-6 text-[#9caea7]">Managed customer-conversation workflows with approved knowledge and human control.</p></div><div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-[#aebdb7]"><a href="/solutions">Solutions</a><a href="/industries">Industries</a><a href="/how-it-works" aria-current="page">How it works</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><span>© {new Date().getFullYear()} PEXEK</span></div></div></footer>
   </div>;
 }
