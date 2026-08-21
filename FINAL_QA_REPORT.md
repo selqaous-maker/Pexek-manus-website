@@ -1,19 +1,76 @@
-# PEXEK Global Website — Final Local QA and Remediation Report
+# PEXEK Global Website — Final Release-Candidate QA Report
 
-**Project:** PEXEK Global Homepage V3.1  
-**Scope:** Approved static website only; no custom-domain connection, DNS change, Vercel deployment or Manus domain flow was performed.  
-**Audit build:** Production Vite build with `NODE_ENV=production`.  
-**Audit date:** 20 August 2026.
+**Project:** PEXEK Global Website  
+**Scope:** Frozen approved website source, Vercel Preview handoff and portable production export.  
+**Audit date:** 21 August 2026.  
+**Deployment status:** No `pexek.com` connection, DNS change, Zoho Mail change, Formspree change or direct Vercel deployment was performed.
 
 ## Executive result
 
-The source is ready for manual Vercel Preview deployment. The most material performance issue found during this pass was not page structure or image delivery: the sandbox inherited `NODE_ENV=development`, which caused React development modules to enter the production build. The build script now explicitly forces production mode for both Vite and the server bundle. The external Google Fonts stylesheet was also replaced with local WOFF2 assets, removing the external font request from the critical path. Legal-route contrast was corrected without changing legal wording, and a missing favicon was added from the approved PEXEK emblem.
+The release candidate is **ready for manual Vercel Preview deployment**. The complete source package builds from a clean extraction with the committed lockfile. All nine approved application routes return successfully through the local preview and the Vercel-compatible routing harness. Static assets, the direct PDF resource, robots, sitemap, manifest and favicon bypass the SPA rewrites correctly.
 
-The final build passes TypeScript and production compilation. All approved routes, SPA refreshes, robots, sitemap, manifest, favicon and direct PDF delivery returned successfully from the production preview. Visual QA was run at 1440px, 1280px, 768px, 430px, 390px and 320px. A narrow-screen Kitchens hero CTA overflow was found at 320px and corrected with a responsive min-width and wrapping rule; the corrected route was rechecked at 320px.
+The only source changes in this final handoff pass are the root Vercel routing configuration, the reproducible routing validator and the QA checklist/report. Approved page copy, design, forms, PDF content, metadata, schema, legal text, DNS, Formspree and the existing Manus deployment were not changed.
 
-## Final Lighthouse results
+## Approved route inventory
 
-These are local Lighthouse mobile-lab measurements against the production preview. They are useful for regression and comparative QA, but the local preview server and Lighthouse runtime are not equivalent to Vercel CDN delivery. Scores should therefore be rechecked on the Vercel Preview URL before cutover.
+| Route | Expected behavior | Result |
+|---|---|---:|
+| `/` | Homepage | HTTP 200 |
+| `/solutions` | Direct SPA route and refresh | HTTP 200 |
+| `/how-it-works` | Direct SPA route and refresh | HTTP 200 |
+| `/industries` | Direct SPA route and refresh | HTTP 200 |
+| `/industries/kitchens-interior` | Direct French funnel route and refresh | HTTP 200 |
+| `/about` | Direct SPA route and refresh | HTTP 200 |
+| `/contact` | Direct SPA route and refresh | HTTP 200 |
+| `/privacy` | Direct legal route and refresh | HTTP 200 |
+| `/terms` | Direct legal route and refresh | HTTP 200 |
+
+## Vercel routing integrity
+
+`vercel.json` is located at the repository root beside `package.json` and `pnpm-lock.yaml`. Each approved application route has an exact SPA rewrite to `/`. The only retained legacy redirect is `/voice-ai-agents` → `/`, permanently. No approved route is redirected to a homepage hash.
+
+The following static paths are not intercepted by exact application rewrites: `/assets/*`, `/resources/*`, `/robots.txt`, `/sitemap.xml` and `/manifest.webmanifest`. Existing cache rules remain in place for immutable assets and the PDF resource.
+
+The Vercel-compatible harness was run against the production output on an isolated local port. Results were HTTP 200 for all nine application routes, the three configuration files and the direct PDF. The legacy route returned HTTP 308 to `/`, as configured. The PDF response MIME type was `application/pdf`.
+
+## Build and source reproducibility
+
+| Check | Result |
+|---|---:|
+| `pnpm install --frozen-lockfile` from repository | PASS |
+| `pnpm check` | PASS |
+| `pnpm build` | PASS |
+| Fresh ZIP extraction and frozen install | PASS |
+| Fresh ZIP extraction TypeScript check | PASS |
+| Fresh ZIP extraction production build | PASS |
+| `/manus-storage/` references | 0 |
+| Manus runtime/debug/storage references in client | 0 |
+| Required local image, logo, font, favicon and PDF assets | Present |
+
+The install emits a non-blocking pnpm warning that the legacy `pnpm` field in `package.json` is ignored by newer pnpm versions. The frozen install, type check and build still pass. This warning does not require a design or deployment change for the current handoff.
+
+## Production bundle measurements
+
+The final production output is approximately **2.8 MB** including local visual assets and the direct PDF resource. The primary emitted application artifacts are:
+
+| Artifact | Raw size |
+|---|---:|
+| Shared JavaScript | 349.7 KB |
+| Shared CSS | 182.4 KB |
+| Homepage route chunk | 27.3 KB |
+| Solutions route chunk | 17.0 KB |
+| Industries route chunk | 16.6 KB |
+| How It Works route chunk | 16.3 KB |
+| Kitchens route chunk | 25.8 KB |
+| Contact route chunk | 12.0 KB |
+| Main local emblem WebP | 285.8 KB |
+| Direct PDF | 559.4 KB |
+
+The current task did not introduce a shared-JavaScript reduction refactor. That optimization should be reconsidered only after measuring the authenticated Vercel Preview, as requested.
+
+## Lighthouse evidence
+
+The most recent production-preview Lighthouse evidence remains the following mobile-lab baseline. It was produced before this routing-only handoff change; the page runtime, copy, layout and assets were not changed in this pass.
 
 | Route | Performance | Accessibility | Best practices | SEO |
 |---|---:|---:|---:|---:|
@@ -25,87 +82,54 @@ These are local Lighthouse mobile-lab measurements against the production previe
 | `/privacy` | 75 | 100 | 100 | 100 |
 | `/terms` | 75 | 100 | 100 | 100 |
 
-The requested legal-route accessibility threshold is met: both `/privacy` and `/terms` scored 100. The remaining non-legal accessibility deductions are shared color-contrast findings on approved public pages and were not changed in this focused pass because they are outside the legal-page remediation requirement and would require a broader visual review.
+The score range is **73–75 Performance**, **95–100 Accessibility**, **100 Best Practices** and **100 SEO**. These are local lab values and must be rechecked on the Vercel Preview because CDN delivery and the hosted runtime will differ.
 
-## Performance evidence and diagnosis
+## Responsive and visual QA
 
-The primary LCP candidate on the homepage is hero text, specifically the H1, rather than a hero image. Therefore, there is no LCP image resource whose load duration can be reduced; the LCP resource-load delay is not applicable. The final Lighthouse insight reports show low measured element-render delay, generally about 0.6–0.7 seconds on the main content routes, while local server/runtime timing dominates the reported lab LCP values.
+Visual captures were completed at **1440, 1280, 1024, 768, 430, 390 and 320px** for the principal global routes, the Kitchens & Interior funnel and the Privacy route. The approved Signal Atelier Midnight system remained intact. The reviewed surfaces showed no new horizontal overflow, clipped headings or broken CTA containment. The 320px and 390px captures confirmed the mobile header and compact CTA behavior; tablet captures confirmed the breakpoint transition and card/workflow containment.
 
-| Route | Reported LCP | TTFB | Element render delay | Main blocking resource |
-|---|---:|---:|---:|---|
-| `/` | 8.3 s | approximately 4.9 ms | approximately 0.7 s | local CSS bundle, 29.9 KB |
-| `/solutions` | 6.8 s | approximately 5.3 ms | approximately 0.6 s | local CSS bundle, 29.9 KB |
-| `/industries` | 6.6 s | approximately 4.0 ms | approximately 0.6 s | local CSS bundle, 29.9 KB |
-| `/how-it-works` | 6.6 s | approximately 3.7 ms | approximately 0.6 s | local CSS bundle, 29.9 KB |
-| `/industries/kitchens-interior` | approximately 6.7 s | approximately 4.1 ms | approximately 0.6 s | local CSS bundle, 29.9 KB |
+The `/terms` route shares the validated legal presentation component with `/privacy` and was separately verified for direct loading and build integrity.
 
-The report’s LCP values are materially higher than the low TTFB and render-delay rows because the lab run includes the browser’s mobile throttling and the local Lighthouse/preview execution environment. The final trace evidence identifies text as the LCP candidate; there is no missing hero image request or external font request remaining in the final build.
+## Navigation, form and external-link QA
 
-The remaining shared JavaScript opportunity is real but should be handled separately from this approved hardening pass. The shared entry is approximately 319.0 KB raw and 101.5 KB gzip. Lighthouse reports roughly 41–58% unused JavaScript on individual routes because the shared entry contains app shell, router, error boundary, notification and shared UI dependencies. The route-level lazy chunks are already separated: the homepage is approximately 29.7 KB raw and the Kitchens page approximately 25.8 KB raw.
+The shared global English header uses the approved order **Solutions → How it works → Industries → About**, with the approved assessment CTA pointing to `/#assessment`. The homepage, Solutions, Industries, How It Works and About routes were visually checked for the shared header, active-route state and mobile menu. The Kitchens French header remained outside the global typography/header modification scope.
 
-## Bundle comparison
+The homepage assessment form retains the validated Formspree endpoint and existing submission logic. The source includes the subject field, page URL field, form source, required privacy consent checkbox and honeypot field. No owner-authorized lead submission was sent during this final pass.
 
-| Artifact | Earlier measured state | Final production state | Change |
-|---|---:|---:|---:|
-| Shared JS rendered module total | 530.5 KB, including React development modules | 318.5 KB, React production modules | approximately 39.9% lower |
-| Shared JS emitted | development-mode bundle | 319.0 KB raw / 101.5 KB gzip | production mode enforced |
-| Shared CSS emitted | external font stylesheet in critical path | 163.9 KB raw / 29.5 KB gzip | fonts now local |
-| Homepage route chunk | approximately 72.4 KB in the earlier development-mode analysis | 29.7 KB raw / 8.4 KB gzip | route remains lazy-loaded |
-| Kitchens route chunk | approximately 25.5 KB in the earlier report | 25.8 KB raw / 7.7 KB gzip | stable |
+The Contact route retains the approved email, WhatsApp, company LinkedIn and founder LinkedIn destinations. External LinkedIn links use distinct accessible labels, open in a new tab and use `rel="noopener noreferrer"`.
 
-## Integrity and functional QA
+## SEO and static integrity
 
-The final production preview returned HTTP 200 for `/`, `/solutions`, `/industries`, `/how-it-works`, `/industries/kitchens-interior`, `/privacy`, `/terms`, `/robots.txt`, `/sitemap.xml`, `/manifest.webmanifest`, `/favicon.ico` and `/resources/guide-lead-to-showroom-showrooms-cuisines-maroc.pdf`.
+The sitemap contains the nine approved public URLs: homepage, Solutions, Industries, How It Works, Kitchens & Interior, About, Contact, Privacy and Terms. Robots, manifest, favicon and direct PDF files are present locally. Existing canonical URLs, Open Graph metadata and structured data were preserved. No analytics or marketing cookies were added.
 
-The direct PDF response is `application/pdf`, 559,380 bytes, and begins with the `%PDF-` signature. The PDF remains a direct, ungated download. The internal clickable CTA destination remains `https://pexek.com/industries/kitchens-interior#eligibility` as approved.
+## Portable export
 
-The sitemap contains seven approved URLs currently represented by the source, including the homepage, four global/funnel content routes and the two legal routes. The Vercel SPA rewrite configuration is present. No `/manus-storage/` references remain in the source, no `vite-plugin-manus-runtime` dependency remains in `package.json` or `pnpm-lock.yaml`, and no Google Fonts or `fonts.gstatic.com` references remain in the client source or production output.
+**File:** `pexek-global-production-release-candidate.zip`  
+**Size:** approximately 17 MB  
+**SHA-256:** `4b8de93bd7158e92f286739f7cd6f4b3b2ff6c655f58467e369f7eaabaac5868`
 
-The Formspree endpoint and existing submission logic were not changed. No form submission was sent during this pass. Production-domain Formspree delivery should still be tested once on the Vercel Preview/domain environment using the owner-authorized mailbox.
+The ZIP is a complete repository-root export, not a `dist`-only package. It includes source code, `client/`, `server/`, `shared/`, `package.json`, `pnpm-lock.yaml`, root `vercel.json`, local fonts, local visual assets, favicon, webmanifest, robots, sitemap, the approved PDF, README, `.env.example`, deployment documentation and QA helpers. It excludes node modules, build output, credentials, secrets, local logs, Lighthouse browser profiles and temporary ZIP files.
 
-## Responsive visual QA
+## Manual Vercel Preview deployment
 
-Screenshots were captured for all approved routes at 1440px, 1280px, 768px, 430px, 390px and 320px where applicable. The reviewed surfaces remained visually consistent with the Signal Atelier Midnight system. The 320px Kitchens & Interior hero exposed a button-content clipping issue; the fix now gives the hero buttons a zero minimum width, full available width, natural wrapping and controlled line height. No copy or desktop layout changed.
+Import or update the existing GitHub/Vercel project using the **repository root**, not `dist/public` and not a nested subdirectory. Use these settings:
 
-The latest visual checks confirmed the header lockup, workflow visuals, CTA containment, legal-page readability, tablet grid transitions and mobile navigation behavior. The 1440px homepage capture had one transient screenshot-capture failure while the same homepage route captured successfully at 1280px, 768px, 430px, 390px and 320px.
-
-## Changed files in this focused pass
-
-| File | Change |
+| Vercel setting | Value |
 |---|---|
-| `package.json` | Explicit production mode for Vite and server build commands. |
-| `client/src/index.css` | Local WOFF2 font declarations, legal-safe responsive Kitchens hero wrapping and 320px CTA containment. |
-| `client/src/pages/LegalNotice.tsx` | Darker accessible muted text and legal links; wording unchanged. |
-| `client/public/fonts/dm-sans-latin.woff2` | Local approved DM Sans font asset. |
-| `client/public/fonts/space-grotesk-400.woff2` | Local approved Space Grotesk font asset. |
-| `client/public/fonts/space-grotesk-500.woff2`, `space-grotesk-600.woff2`, `space-grotesk-700.woff2` | Local font assets retained for portable typography coverage. |
-| `client/public/favicon.ico` | Compact favicon generated from the approved local PEXEK emblem. |
-| `qa/analyze-bundle.mjs` | Production-mode-safe module analysis. |
-| `qa/extract-lighthouse-details.mjs` | Support for current Lighthouse insight IDs. |
-| `qa/inspect-contrast.mjs`, `qa/extract-lcp-trace.mjs`, `qa/parse-lcp-assets.mjs`, `qa/inspect-report-keys.mjs` | Reproducible audit evidence helpers. |
-| `qa/create-favicon.py` | Reproducible favicon generation helper. |
-| `FINAL_QA_REPORT.md` | This report. |
+| Framework preset | Vite |
+| Install command | `pnpm install --frozen-lockfile` |
+| Build command | `pnpm build` |
+| Output directory | `dist/public` |
+| Root directory | Repository root |
 
-## Remaining risks and recommended follow-up
+After the Preview is created, verify all nine routes with direct refresh, `/#assessment` hash positioning, one owner-authorized Formspree test, PDF MIME/download behavior, mobile navigation at 320px, console/network errors, Lighthouse mobile/desktop, canonical URLs, schema, sitemap and robots. Do not connect `pexek.com` or change DNS until these checks pass and rollback readiness is confirmed.
 
-The local mobile Lighthouse Performance score remains below the original 90+ target, with a range of 73–75 on the final run. This is not a release-blocking functional failure for the portable static source, but it is the principal performance risk. The next performance iteration should focus on reducing the shared entry chunk and auditing whether notification, tooltip, floating UI and shared shell dependencies can be split or removed without changing the approved experience. That work should be evaluated on a Vercel Preview, where CDN delivery and server response timing are representative.
+## Rollback
 
-The production cutover should remain separate. Do not change `pexek.com` DNS, Zoho Mail, legal text, Formspree configuration, analytics or the current Manus deployment until the Vercel Preview has been tested and the owner has confirmed rollback readiness.
+Keep the current Manus deployment and original DNS records unchanged. If the Vercel Preview fails, do not connect the custom domain; instead correct the repository source or revert the GitHub commit. If a later domain cutover is authorized and fails, restore the original DNS records and confirm the existing Manus host serves the site before investigating further.
 
-## Manual Vercel deployment
-
-From the portable ZIP or GitHub project, run:
-
-```bash
-pnpm install --frozen-lockfile
-pnpm check
-pnpm build
-```
-
-Use the Vercel project’s existing settings with the repository root as the project root. The build command is `pnpm build`; the static output directory is `dist/public`. No runtime environment variables are required for the hardened static build, so `.env.example` may remain empty apart from its documentation. Verify direct refreshes for all seven routes and the PDF before any domain cutover.
-
-**Recommended commit message:**
+## Recommended Git commit message
 
 ```text
-perf: harden static build and complete production QA
+chore: finalize PEXEK Vercel release candidate and portable export
 ```

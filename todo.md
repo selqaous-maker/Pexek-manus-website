@@ -429,3 +429,142 @@ Protected scope: no Vercel login/token handling, pexek.com/DNS/Zoho changes, For
 - [ ] Validate routes and static assets with a Vercel-compatible local routing server.
 - [ ] Package the complete project root and document the exact `vercel.json` location and deployment settings.
 - [ ] Save and deliver the corrected routing checkpoint and source ZIP without touching DNS or live deployment settings.
+
+## Global /about Approval Brief
+
+- [ ] Define the six-section global English /about page purpose, positioning and claim boundaries.
+- [ ] Draft exact hero, company, workflow, responsibility, founder and CTA copy.
+- [ ] Define third-party technology disclosure, configurable capability language and prohibited claims.
+- [ ] Specify internal links, SEO metadata, canonical URL and WebPage/AboutPage/BreadcrumbList schema.
+- [ ] Define desktop, tablet and mobile architecture guidance without implementing or publishing the route.
+- [ ] Deliver the approval-ready brief and wait for explicit approval.
+
+## Final /about Brief Corrections
+
+- [ ] Replace the Section 04 third-party disclosure with the user-approved contractual wording.
+- [ ] Replace customer-facing “approved third-party technology” terminology with “selected third-party technology”.
+- [ ] Simplify schema to one AboutPage, one BreadcrumbList and an Organization reference only with confirmed public facts.
+- [ ] State that `/about` enters sitemap.xml only during eventual implementation; keep the sitemap unchanged now.
+- [ ] Remove the unselected founder-portrait recommendation and use a restrained founder text block by default.
+- [ ] Return the corrected unified brief without implementing or publishing the route.
+
+## Approved /about Route Implementation
+
+- [ ] Inspect existing route registration, metadata helpers, shared navigation/footer and responsive design primitives.
+- [ ] Implement exactly the approved six-section English `/about` page with founder text block only.
+- [ ] Connect About navigation/footer destinations to `/about` and preserve assessment hash navigation.
+- [ ] Add AboutPage, BreadcrumbList, confirmed Organization facts only, canonical metadata and the `/about` sitemap entry.
+- [ ] Run TypeScript, production build, direct route, refresh, internal-link, CTA, responsive, overflow and console QA.
+- [ ] Publish the scoped checkpoint and report changed files, QA results and protected-settings preservation.
+
+## Global Typography and Header Consistency Pass
+
+- [ ] Inspect display-font declarations and header implementations across the homepage, Solutions, Industries, How It Works and About.
+- [ ] Create or reuse one shared global English Header with canonical navigation, About route and assessment CTA while leaving Kitchens unchanged.
+- [ ] Standardize global H1/H2 display headings to Space Grotesk 500 and body/navigation/supporting text to DM Sans.
+- [ ] Run TypeScript/build, responsive, navigation, active-state, font, overflow, console and assessment-hash QA at 1440, 1280, 768, 430, 390 and 320px.
+- [ ] Publish the scoped consistency checkpoint and report exact changed files and results.
+
+## Global Typography and Header Consistency Pass — Completed
+
+- [x] Shared global English Header now serves homepage, Solutions, Industries, How It Works and About.
+- [x] Canonical order is Solutions → How it works → Industries → About on desktop and mobile.
+- [x] Canonical assessment CTA uses “See How PEXEK Could Work for Your Business” → `/#assessment`.
+- [x] Global English H1/H2 display headings use Space Grotesk 500; body, navigation and supporting text use DM Sans.
+- [x] French Kitchens & Interior header and content were not modified by the shared-header pass.
+- [x] TypeScript, production build, desktop/mobile screenshots, route navigation, active state, overflow and console QA completed.
+
+## Global /contact Approval Brief
+
+- [ ] Define the five-section contact-routing page objective and safety boundaries.
+- [ ] Draft exact English copy for workflow assessment, general enquiry, WhatsApp and LinkedIn paths.
+- [ ] Mark the PEXEK public company LinkedIn URL as requiring confirmation if not present in approved project data.
+- [ ] Specify privacy note, internal links, CTA destinations, tap-target and external-link requirements.
+- [ ] Define ContactPage, BreadcrumbList, canonical metadata and eventual sitemap entry without changing the sitemap now.
+- [ ] Provide desktop, tablet and mobile guidance and wait for explicit approval before implementation.
+
+## Final /contact LinkedIn Corrections
+
+- [ ] Replace the Section 02 LinkedIn card with the confirmed PEXEK company-page copy and URL.
+- [ ] Add separate Section 04 blocks for PEXEK LinkedIn and founder LinkedIn using the confirmed URLs.
+- [ ] Remove all company-page confirmation-pending language.
+- [ ] Restrict Organization sameAs to the confirmed company page; use founder sameAs only on a limited Person reference if included.
+- [ ] Specify distinct accessible names, new-tab behavior and noopener/noreferrer for both LinkedIn links.
+- [ ] Return the corrected unified brief without implementing or publishing the route.
+
+## Approved /contact Route Implementation
+
+- [ ] Inspect existing shared footer, route registration, metadata helpers and contact-link primitives.
+- [ ] Implement exactly the approved five-section `/contact` page with four primary contact cards and no second form.
+- [ ] Add the Contact footer destination, route metadata/schema and sitemap entry while preserving the shared header architecture.
+- [ ] Implement accessible mailto, WhatsApp and company/founder LinkedIn links with exact destinations and safe external-link attributes.
+- [ ] Run TypeScript, production build, direct-route, refresh, internal-link, CTA, responsive, overflow, focus-state and console QA.
+- [ ] Publish the scoped checkpoint and report exact files changed, QA results and protected-settings preservation.
+
+## Approved /contact Route Implementation — Completed
+
+- [x] Implemented exactly five sections and four primary contact cards with no second form or exposed Formspree endpoint.
+- [x] Registered `/contact`, added canonical metadata, ContactPage/BreadcrumbList schema, limited confirmed Organization/Person references and sitemap entry.
+- [x] Added Contact to the global English footer destinations while preserving the shared header order and CTA.
+- [x] Added exact email, WhatsApp, company LinkedIn and founder LinkedIn destinations with visible details and safe external-link attributes.
+- [x] TypeScript and production build passed.
+- [x] Direct routes, refresh-safe shell, internal links, metadata, schema, sitemap, protected Vercel config, responsive screenshots at 1440/390/320px and console/network checks completed.
+
+## Approval-Only Privacy and Terms Legal Content Audit
+
+- [ ] Audit the current global English `/privacy` and `/terms` visitor-facing copy against the confirmed website scope.
+- [ ] Identify unsupported claims, missing disclosures and legally unresolved fields without modifying source files.
+- [ ] Draft exact replacement copy for Privacy Notice and Terms of Use with separate private decision checklist.
+- [ ] Add SEO metadata, canonical, schema, responsive/accessibility and implementation guardrails for both routes.
+- [ ] Deliver the approval-only brief and wait for explicit approval before any website change.
+
+## Confirmed Operator Identity Legal Brief Revision
+
+- [ ] Replace the public operator identity with the confirmed PEXEK trading-name and Moroccan auto-entrepreneur wording.
+- [ ] Remove all public internal instructions, confirmation placeholders and unresolved legal decisions from visitor-facing Privacy and Terms copy.
+- [ ] Apply the approved retention criterion, Morocco-prioritized rights wording, confirmed technical-information wording and factual Formspree disclosure.
+- [ ] Apply the restrained mandatory-law safeguard to Terms and exclude public liability caps, governing-law and jurisdiction clauses.
+- [ ] Update schema recommendation to WebPage plus BreadcrumbList for both routes.
+- [ ] Add CNDP, international-transfer, ICE/address, effective-date and deletion-schedule launch blockers to the private checklist.
+- [ ] Deliver the corrected approval-only visitor copy and legal decision inventory without implementation or publication.
+
+## Final Legal Brief Micro-Corrections
+
+- [ ] Remove the two public meta-disclaimer sentences from Privacy technical information and service-provider sections.
+- [ ] Replace the retention sentence with the approved deletion wording.
+- [ ] Replace the intellectual-property wording with the confirmed operator-permission wording.
+- [ ] Replace the third-party section opening with the approved factual wording.
+- [ ] Replace the separate-agreements opening with the approved operator wording.
+- [ ] Preserve all other copy, private blockers, metadata, schema and implementation freeze.
+- [ ] Deliver the corrected unified approval-only brief and wait for explicit approval.
+
+## Approved Privacy and Terms Implementation
+
+- [ ] Implement the approved visitor-facing Privacy Notice and Terms with visible effective date `21 August 2026` and no private checklist or legal disclaimer.
+- [ ] Preserve confirmed operator identity, Formspree disclosure, sensitive-data warning, technical-information wording, retention, rights, Terms boundaries, mandatory-law safeguard and separate-agreement wording.
+- [ ] Add one WebPage entity and one BreadcrumbList per legal route with approved metadata and canonicals only.
+- [ ] Preserve shared header/footer, typography, accessibility and all protected content/settings.
+- [ ] Run TypeScript, production build, direct-route, refresh, metadata/schema, navigation, email-link, responsive, overflow, heading, focus, contrast and console QA.
+- [ ] Publish the scoped checkpoint and report URLs, exact files, QA, private-data preservation and protected-scope preservation.
+
+## Approved Privacy and Terms Implementation — Completed
+
+- [x] Replaced placeholder legal copy with approved visitor-facing Privacy Notice and Terms of Use.
+- [x] Added visible `Effective date: 21 August 2026` to both routes.
+- [x] Excluded AI/legal disclaimer, private launch blockers, unresolved notes, private identifiers and counsel-review reminders from public pages.
+- [x] Added one WebPage entity and one BreadcrumbList per legal route with approved metadata and canonicals.
+- [x] Preserved shared global Header/Footer, Space Grotesk 500 headings, DM Sans body copy, focus states and no reveal-dependent legal text.
+- [x] Frozen install, TypeScript check and production build passed.
+- [x] Direct route, refresh shell, metadata/schema, protected-scope, responsive screenshots at 1440/1280/768/430/390/320px, overflow, heading, visual focus/contrast and console/network QA completed.
+
+## Final Release Candidate QA and Portable Export
+
+- [ ] Inventory all nine approved routes, the PDF resource, protected files and current root routing configuration.
+- [ ] Verify global/mobile navigation, active states, footer links, logo, industry child-route behavior and assessment hash navigation.
+- [ ] Verify external-link destinations, accessible names, target/rel attributes and Formspree integrity without submitting a lead.
+- [ ] Verify metadata, canonicals, schema, sitemap, robots, favicon, manifest, social metadata and broken internal links.
+- [ ] Verify Vercel routing for every approved SPA route plus static assets and PDF without replacing the proven configuration.
+- [ ] Run frozen install, TypeScript, production build, responsive, accessibility, console/network, overflow and reduced-motion QA.
+- [ ] Run Lighthouse on the seven requested content routes and report results honestly without a large optimization refactor.
+- [ ] Create a clean root-correct portable ZIP, clean-verify it, calculate checksum and write the final QA report.
+- [ ] Publish the release-candidate checkpoint and deliver the report, ZIP, checksum and remaining external launch actions.
