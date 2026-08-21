@@ -51,7 +51,7 @@ const workflowSteps = [
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xkodykaj";
 const WHATSAPP_URL = "https://wa.me/212633323828?text=Hello%20PEXEK%2C%20I%20would%20like%20to%20understand%20how%20a%20customer-conversation%20workflow%20could%20work%20for%20my%20business.";
 const FOUNDER_LINKEDIN_URL = "https://www.linkedin.com/in/salah-eddine-el-qaous-2b131b140/";
-const PEXEK_LINKEDIN_URL = "https://www.linkedin.com/company/pexek-agency/";
+const PEXEK_LINKEDIN_URL = "https://www.linkedin.com/company/pexek/";
 
 function scrollToId(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
