@@ -28,6 +28,10 @@
       "destination": "/"
     },
     {
+      "source": "/industries/automotive-after-sales",
+      "destination": "/"
+    },
+    {
       "source": "/about",
       "destination": "/"
     },

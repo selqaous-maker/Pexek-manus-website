@@ -15,6 +15,7 @@ const Solutions = lazy(() => import("./pages/Solutions"));
 const Industries = lazy(() => import("./pages/Industries"));
 const HowItWorks = lazy(() => import("./pages/HowItWorks"));
 const Contact = lazy(() => import("./pages/Contact"));
+const AutomotiveAfterSales = lazy(() => import("./pages/AutomotiveAfterSales"));
 
 const SITE_URL = "https://pexek.com";
 
@@ -47,6 +48,12 @@ const PAGE_METADATA: Record<string, { title: string; description: string; canoni
     title: "PEXEK Lead-to-Showroom | Cuisines & Aménagement Intérieur au Maroc",
     description: "PEXEK aide les showrooms de cuisines et d’aménagement intérieur à organiser les demandes de leur site, structurer le contexte et préparer la prochaine action commerciale.",
     canonical: `${SITE_URL}/industries/kitchens-interior`,
+    indexable: true,
+  },
+  "/industries/automotive-after-sales": {
+    title: "Demandes et rendez-vous automobiles au Maroc | PEXEK",
+    description: "PEXEK aide les entreprises et centres de services automobiles au Maroc à structurer les demandes récentes, préparer les rappels ou rendez-vous et conserver le contrôle humain sur les décisions importantes.",
+    canonical: `${SITE_URL}/industries/automotive-after-sales`,
     indexable: true,
   },
   "/about": {
@@ -126,6 +133,7 @@ function Router() {
       <Route path="/how-it-works" component={HowItWorks} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
+      <Route path="/industries/automotive-after-sales" component={AutomotiveAfterSales} />
       <Route path="/industries/kitchens-interior" component={KitchensInterior} />
       <Route path="/privacy">{() => <LegalNotice type="privacy" />}</Route>
       <Route path="/terms">{() => <LegalNotice type="terms" />}</Route>

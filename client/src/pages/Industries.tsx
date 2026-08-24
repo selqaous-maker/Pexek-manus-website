@@ -18,7 +18,7 @@ const groups = [
   {
     label: "Mobility, hospitality and guest journeys",
     entries: [
-      { name: "Automotive", description: "First-interest, test-drive, service or follow-up requests that need a defined route to the relevant team." },
+      { name: "Automotive", description: "Service requests and appointment enquiries that need a defined route to the relevant team.", featured: true },
       { name: "Hospitality", description: "Guest enquiries, booking-related requests and service questions that may require approved information and human escalation." },
       { name: "Restaurants", description: "Reservation, menu, event or service enquiries that can be organized before a team member confirms the next step." },
     ],
@@ -104,7 +104,7 @@ export default function Industries() {
         <section className="industries-light-section industries-contexts-section">
           <div className="container">
             <div className="industries-section-intro"><div className="eyebrow"><span className="eyebrow-count">02</span> Industry contexts</div><h2 className="industries-section-title mt-5">Different industries. The same need for a clearer next action.</h2><p className="mt-6">Customer conversations look different across sectors, but the operational questions are often similar: where did the request arrive, what context is needed, what should happen next and when should a person take over?</p></div>
-            <div className="industries-group-grid mt-12">{groups.map((group, groupIndex) => <section className="industries-group" key={group.label}><div className="industries-group-heading"><span>0{groupIndex + 1}</span><h3>{group.label}</h3></div><div className="industries-group-entries">{group.entries.map((entry) => entry.featured ? <a className="industries-entry industries-entry-featured" href="/industries/kitchens-interior" key={entry.name}><div><strong>{entry.name}</strong><p>{entry.description}</p></div><ArrowUpRight className="size-4" /></a> : <article className="industries-entry" key={entry.name}><strong>{entry.name}</strong><p>{entry.description}</p></article>)}</div></section>)}</div>
+            <div className="industries-group-grid mt-12">{groups.map((group, groupIndex) => <section className="industries-group" key={group.label}><div className="industries-group-heading"><span>0{groupIndex + 1}</span><h3>{group.label}</h3></div><div className="industries-group-entries">{group.entries.map((entry) => entry.featured ? <a className="industries-entry industries-entry-featured" href={entry.name === "Kitchens & Interior" ? "/industries/kitchens-interior" : "/industries/automotive-after-sales"} key={entry.name}><div><strong>{entry.name}</strong><p>{entry.description}</p></div><ArrowUpRight className="size-4" /></a> : <article className="industries-entry" key={entry.name}><strong>{entry.name}</strong><p>{entry.description}</p></article>)}</div></section>)}</div>
           </div>
         </section>
 
