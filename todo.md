@@ -568,3 +568,114 @@ Protected scope: no Vercel login/token handling, pexek.com/DNS/Zoho changes, For
 - [ ] Run Lighthouse on the seven requested content routes and report results honestly without a large optimization refactor.
 - [ ] Create a clean root-correct portable ZIP, clean-verify it, calculate checksum and write the final QA report.
 - [ ] Publish the release-candidate checkpoint and deliver the report, ZIP, checksum and remaining external launch actions.
+
+## Approval-only Automotive After-sales Brief
+
+- [ ] Read `pasted_content_18.txt` completely and extract all requirements.
+- [ ] Prepare the unified French content, UX and architecture brief for `/industries/automotive-after-sales`.
+- [ ] Preserve the unvalidated status pending 15 interviews and all implementation freeze constraints.
+- [ ] Deliver the approval-ready brief without modifying or publishing the website.
+
+## Automotive After-sales Brief Corrections
+
+- [ ] Remove public 15-interview validation wording from the automotive brief.
+- [ ] Correct automotive CTA destinations and define the local `#eligibilite` form.
+- [ ] Shorten the proposed form to no more than 10 customer-facing inputs.
+- [ ] Remove Kitchens-specific wording and reduce repeated compliance language.
+- [ ] Rewrite and deliver the unified corrected approval-only brief without implementation or publication.
+
+## Pasted Content 20 Execution
+
+- [x] Read `pasted_content_20.txt` completely and extract its requirements.
+- [x] Execute the requested work within the file-defined scope.
+- [x] Verify all constraints and protected areas.
+- [x] Deliver the result and report any changes or blockers.
+
+## Public Manus Deployment Synchronization
+
+- [ ] Diagnose why checkpoint `fd2c6b3c` is not reflected on the public Manus domain.
+- [ ] Synchronize or republish only the approved existing checkpoint without rebuilding the automotive page from scratch.
+- [ ] Verify the actual public Manus URL by direct load and browser refresh.
+- [ ] Verify automotive route, Industries link, CTAs, form, metadata/schema, sitemap and protected Kitchens route publicly.
+- [ ] Report the exact personally verified public URL and HTTP/browser result.
+
+## Homepage Automotive Context 02 Correction
+
+- [ ] Inspect Context 02 and determine whether the approved checkbox-group UX correction is already published.
+- [ ] Update only Context 02 copy, accessible link name and destination.
+- [ ] Preserve all other homepage cards, links, copy, layout and protected routes.
+- [ ] Verify 1440, 1280, 1024, 768, 430, 390 and 320px behavior without Formspree submission.
+- [ ] Republish the existing Manus project and report checkpoint plus exact changed files.
+
+## Pasted Content 21 Execution
+
+- [ ] Read `pasted_content_21.txt` completely and extract its requirements.
+- [ ] Execute the requested scoped work without unrelated changes.
+- [ ] Verify all required constraints and protected areas.
+- [ ] Deliver the requested result and status.
+
+## Post-Promotion Public Verification
+
+- [ ] Confirm checkpoint 48b6e5c3 was explicitly promoted through the Management UI.
+- [ ] Verify public HTML no longer references index-DllwmcMi.js and references index-KxLbD7JI.js or newer.
+- [ ] Verify homepage Automotive After-sales copy, description and route.
+- [ ] Verify four source checkboxes and absence of native enquiry_sources multiple select.
+- [ ] Verify direct route refresh and 320px overflow.
+- [ ] Confirm no Formspree submission was performed.
+
+## Pasted Content 22 Execution
+
+- [ ] Read `pasted_content_22.txt` completely and extract its requirements.
+- [ ] Execute the requested work within the file-defined scope.
+- [ ] Verify all constraints and protected areas.
+- [ ] Deliver the result and report any changes or blockers.
+
+## Pasted Content 23 Execution
+
+- [ ] Read `pasted_content_23.txt` completely and extract its requirements.
+- [ ] Execute the requested work within the file-defined scope.
+- [ ] Verify all constraints and protected areas.
+- [ ] Deliver the result and report any changes or blockers.
+
+## Pasted Content 24 Execution
+
+- [ ] Read `pasted_content_24.txt` completely and extract its requirements.
+- [ ] Execute the requested work within the file-defined scope.
+- [ ] Verify all constraints and protected areas.
+- [ ] Deliver the result and report any changes or blockers.
+
+## Pasted Content 25 Execution
+
+- [ ] Read `pasted_content_25.txt` completely and extract its requirements.
+- [ ] Execute the requested scoped work from the file.
+- [ ] Verify the result against all file constraints and protected areas.
+- [ ] Deliver the result and status without unrelated changes.
+
+## Approved Automotive PDF Resource Card Integration
+
+- [ ] Verify the approved PDF source, exact filename and checksum before copying it unchanged.
+- [ ] Add the PDF at `client/public/resources/guide-demandes-automobiles-sans-suite-maroc.pdf` and integrate one card after Automotive Section 03.
+- [ ] Use the exact approved French card copy and same-origin direct PDF link.
+- [ ] Preserve the Automotive eligibility funnel, form behavior and all protected pages/settings.
+- [ ] Run frozen install, TypeScript, production build, route/PDF MIME/checksum, accessibility and responsive QA without submitting Formspree.
+- [ ] Publish only the scoped Manus checkpoint and report the public Automotive URL, direct PDF URL, changed files and completed QA.
+
+Scope guardrails: do not modify the PDF itself, Kitchens page, homepage, other routes, forms, metadata, schema, sitemap, analytics, DNS, domain or Vercel configuration beyond what is strictly required to serve this static PDF.
+
+## Production handoff package — checkpoint 77bde7c1
+
+- [ ] Freeze source at checkpoint 77bde7c1 and inventory approved routes, assets and configuration.
+- [ ] Run frozen install, TypeScript validation and production build.
+- [ ] Verify all 10 direct routes, refresh behavior, Vercel rewrites, hash-scroll target, PDFs, MIME types, checksums, sitemap and robots.
+- [ ] Complete responsive QA at 1440, 1280, 768, 430, 390 and 320px without Formspree submission.
+- [ ] Create one complete portable source ZIP excluding caches, secrets, credentials, screenshots and temporary build files.
+- [ ] Re-run install, check and build from extracted ZIP; generate build report, source checklist and ZIP checksum.
+- [ ] Do not modify DNS, pexek.com, Zoho Mail, Formspree, analytics, legal wording or any live deployment; do not publish from Manus.
+
+## Handoff documentation and validator correction
+
+- [ ] Inspect the routing validator and four handoff documents against checkpoint 77bde7c1.
+- [ ] Add the Automotive route and PDF; correct route, redirect and rewrite counts and stale filenames/checksums.
+- [ ] Preserve the Automotive PDF byte-for-byte and verify its required SHA-256.
+- [ ] Run frozen install, TypeScript, production build, corrected validator, 10-route Vercel-compatible harness, both PDF MIME checks and sitemap/robots/manifest checks.
+- [ ] Generate a new complete handoff ZIP with exact filename, byte size and SHA-256; do not modify or publish the website.

@@ -20,13 +20,13 @@ The Vercel project should use **Build Command** `pnpm build`, **Output Directory
 2. Open **Settings → Git** and confirm that the intended GitHub repository and production branch are connected.
 3. Confirm that the project root is the repository root and that the build command and output directory match the values above.
 4. Push the hardened source to the approved GitHub repository with the recommended commit message in `README.md` or the final QA report.
-5. Create a preview deployment first. Verify `/`, `/solutions`, `/industries`, `/how-it-works`, `/industries/kitchens-interior`, `/privacy` and `/terms` by direct refresh.
-6. Verify `/resources/guide-lead-to-showroom-showrooms-cuisines-maroc.pdf` returns the PDF directly.
+5. Create a preview deployment first. Verify `/`, `/solutions`, `/how-it-works`, `/industries`, `/industries/kitchens-interior`, `/industries/automotive-after-sales`, `/about`, `/contact`, `/privacy` and `/terms` by direct refresh.
+6. Verify `/resources/guide-lead-to-showroom-showrooms-cuisines-maroc.pdf` and `/resources/guide-demandes-automobiles-sans-suite-maroc.pdf` return the PDFs directly.
 7. Promote the approved preview to production from Vercel.
 8. Do not connect `pexek.com` or change DNS in this deployment step. Domain cutover remains a separate owner-approved operation.
 
-`vercel.json` contains explicit SPA rewrites for the approved client routes and immutable caching for local assets. Static PDF delivery is not rewritten to the SPA.
+`vercel.json` contains nine explicit non-root SPA rewrites for the approved client routes and exactly one legacy redirect: `/voice-ai-agents` → `/`. `/about` and `/contact` are real application routes, not redirects. Immutable caching for local assets and direct delivery for both PDF resources are preserved.
 
 ## Post-deployment checks
 
-Verify the production response status, browser console, form display, PDF download, assessment hash landing, mobile layout and the canonical URL for each indexable route. Submit no form during deployment verification unless the owner separately authorizes a production Formspree test.
+Verify all 10 public application routes by direct refresh, the production response status, browser console, form display, both PDF downloads, assessment hash landing, mobile layout and the canonical URL for each indexable route. Submit no form during deployment verification unless the owner separately authorizes a production Formspree test.

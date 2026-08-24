@@ -25,7 +25,7 @@ project-root/
 └── other source files
 ```
 
-The configuration uses `pnpm build`, outputs `dist/public`, permanently redirects only the confirmed legacy paths `/voice-ai-agents`, `/about` and `/contact`, and rewrites the six approved application routes to `/index.html`. The existing immutable asset cache headers and direct PDF headers are preserved.
+The configuration uses `pnpm build`, outputs `dist/public`, permanently redirects only the confirmed legacy path `/voice-ai-agents` to `/`, and rewrites nine non-root approved application routes to `/`. The existing immutable asset cache headers and direct PDF headers are preserved.
 
 ## Exact deployment settings
 
@@ -45,14 +45,18 @@ The approved routes are configured as follows:
 
 | Request path | Expected behavior |
 |---|---|
-| `/solutions` | SPA rewrite to `/index.html` |
-| `/industries` | SPA rewrite to `/index.html` |
-| `/how-it-works` | SPA rewrite to `/index.html` |
-| `/industries/kitchens-interior` | SPA rewrite to `/index.html` |
-| `/privacy` | SPA rewrite to `/index.html` |
-| `/terms` | SPA rewrite to `/index.html` |
+| `/solutions` | SPA rewrite to `/` |
+| `/industries` | SPA rewrite to `/` |
+| `/how-it-works` | SPA rewrite to `/` |
+| `/industries/kitchens-interior` | SPA rewrite to `/` |
+| `/industries/automotive-after-sales` | SPA rewrite to `/` |
+| `/about` | SPA rewrite to `/` |
+| `/contact` | SPA rewrite to `/` |
+| `/privacy` | SPA rewrite to `/` |
+| `/terms` | SPA rewrite to `/` |
 | `/assets/*` | Served as real static assets; no SPA rewrite |
 | `/resources/guide-lead-to-showroom-showrooms-cuisines-maroc.pdf` | Served as a real PDF; no SPA rewrite |
+| `/resources/guide-demandes-automobiles-sans-suite-maroc.pdf` | Served as a real PDF; no SPA rewrite |
 | `/robots.txt` | Served as a real text file; no SPA rewrite |
 | `/sitemap.xml` | Served as a real XML file; no SPA rewrite |
 | `/manifest.webmanifest` | Served as a real manifest; no SPA rewrite |
@@ -74,7 +78,8 @@ The following checks passed from the current corrected source:
 | Approved application routes | HTTP 200 and HTML shell |
 | Legacy redirects | HTTP 308 with expected destinations |
 | Robots, sitemap and manifest | HTTP 200 with correct content types |
-| Direct PDF | HTTP 200, `application/pdf`, 559,380 bytes |
+| Kitchens PDF | HTTP 200, `application/pdf` |
+| Automotive PDF | HTTP 200, `application/pdf`, SHA-256 `aa59904fe8210fbd8a407df7d8b129bf0c116def9018e546ad61494809bdb35d` |
 | ZIP integrity | Passed |
 
 Because the Vercel CLI requires authentication in this sandbox, it was not used to deploy or connect an account. The route harness applies the committed `vercel.json` redirects, rewrites, static-file resolution and headers against the production build, which verifies the routing rules without relying on `vite preview` or changing external services. The first authenticated Vercel Preview remains the final provider-level confirmation.
@@ -83,7 +88,7 @@ Because the Vercel CLI requires authentication in this sandbox, it was not used 
 
 | File | Change |
 |---|---|
-| `vercel.json` | Added the three approved legacy redirects, configured six application rewrites, removed obsolete route redirects and preserved cache/PDF headers. |
+| `vercel.json` | Preserves the single `/voice-ai-agents` legacy redirect, configures nine non-root application rewrites and preserves cache/PDF headers. |
 | `qa/validate-vercel-routing.mjs` | Added root/config/static-asset/rewrite validation. |
 | `qa/vercel-routing-harness.mjs` | Added a local config-faithful Vercel route harness for HTTP behavior checks. |
 | `VERCEL_ROUTING_HANDOFF.md` | Added this deployment handoff document. |

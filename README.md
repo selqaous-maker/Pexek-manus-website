@@ -17,7 +17,7 @@ The production artifact is written to `dist/public`. No runtime secret is requir
 
 ## Routes
 
-The approved client routes are `/`, `/solutions`, `/industries`, `/how-it-works`, `/industries/kitchens-interior`, `/privacy` and `/terms`. The PDF is served directly at `/resources/guide-lead-to-showroom-showrooms-cuisines-maroc.pdf`. Unapproved child routes remain inactive.
+The approved client routes are `/`, `/solutions`, `/how-it-works`, `/industries`, `/industries/kitchens-interior`, `/industries/automotive-after-sales`, `/about`, `/contact`, `/privacy` and `/terms`. The Kitchens PDF is served directly at `/resources/guide-lead-to-showroom-showrooms-cuisines-maroc.pdf`, and the Automotive PDF is served directly at `/resources/guide-demandes-automobiles-sans-suite-maroc.pdf`.
 
 ## Deployment
 

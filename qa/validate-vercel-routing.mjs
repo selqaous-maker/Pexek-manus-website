@@ -9,6 +9,7 @@ const expectedAppRoutes = [
   "/industries",
   "/how-it-works",
   "/industries/kitchens-interior",
+  "/industries/automotive-after-sales",
   "/about",
   "/contact",
   "/privacy",
@@ -17,6 +18,10 @@ const expectedAppRoutes = [
 const expectedLegacy = new Map([["/voice-ai-agents", "/"]]);
 const staticPrefixes = ["/assets/", "/resources/"];
 const staticFiles = ["/robots.txt", "/sitemap.xml", "/manifest.webmanifest"];
+const requiredPdfs = [
+  "client/public/resources/guide-lead-to-showroom-showrooms-cuisines-maroc.pdf",
+  "client/public/resources/guide-demandes-automobiles-sans-suite-maroc.pdf",
+];
 const fail = (message) => {
   console.error(`FAIL: ${message}`);
   process.exitCode = 1;
@@ -31,6 +36,7 @@ assert(config.outputDirectory === "dist/public", "outputDirectory must be dist/p
 assert(config.cleanUrls === true, "cleanUrls must remain true");
 
 const rewrites = new Map((config.rewrites ?? []).map((item) => [item.source, item.destination]));
+assert(expectedAppRoutes.length === 9, "validator must cover nine non-root application rewrites");
 for (const route of expectedAppRoutes) {
   assert(rewrites.get(route) === "/", `${route} must rewrite to /`);
   const redirect = (config.redirects ?? []).find((item) => item.source === route);
@@ -57,7 +63,7 @@ const required = [
   "client/public/sitemap.xml",
   "client/public/manifest.webmanifest",
   "client/public/favicon.ico",
-  "client/public/resources/guide-lead-to-showroom-showrooms-cuisines-maroc.pdf",
+  ...requiredPdfs,
 ];
 for (const relative of required) {
   assert(fs.existsSync(path.join(root, relative)), `missing required package path: ${relative}`);
@@ -65,12 +71,14 @@ for (const relative of required) {
 if (process.exitCode) process.exit(1);
 console.log(JSON.stringify({
   root,
+  publicApplicationRouteCount: expectedAppRoutes.length + 1,
   buildCommand: config.buildCommand,
   outputDirectory: config.outputDirectory,
   applicationRewrites: expectedAppRoutes,
   rewriteDestination: "/",
   legacyRedirects: Object.fromEntries(expectedLegacy),
   staticAssetBypass: [...staticPrefixes, ...staticFiles],
+  pdfResources: requiredPdfs,
   headersPreserved: true,
   result: "PASS",
 }, null, 2));
