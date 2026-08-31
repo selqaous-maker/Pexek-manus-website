@@ -164,7 +164,7 @@ function TermsOfUse() {
 
       <LegalSection title="Future customer services">
         <p>Any paid service or customer-specific workflow will be governed by a separate written agreement, Order Form, Campaign Approval Form and, where applicable, Client Data Processing Agreement. Those documents define the actual scope, fees, responsibilities, data-processing arrangements, support commitments and limitations.</p>
-        <p>PEXEK&apos;s public website and client platform are separate environments. The client platform may be available at app.pexek.com or another authorized subdomain. Access to the client platform is governed by the applicable Master Services Agreement, Order Form, Client Data Processing Agreement, Campaign Approval Form and platform terms. This website Privacy Notice does not replace those customer-specific documents.</p>
+        <p>PEXEK&apos;s public website and any client platform are separate environments. Where a client platform is provided, access is governed by the applicable Master Services Agreement, Order Form, Client Data Processing Agreement, Campaign Approval Form and platform terms. These Website Terms do not replace those customer-specific documents.</p>
       </LegalSection>
 
       <LegalSection title="Third-party technology">
@@ -204,7 +204,7 @@ function TermsOfUse() {
 
       <LegalSection title="Website liability">
         <p>To the maximum extent permitted by applicable law, PEXEK is not liable for indirect, consequential, special or loss-of-profit damages arising solely from use of the informational website.</p>
-        <p>This limitation does not exclude or limit any right or liability that cannot lawfully be excluded or limited.</p>
+        <p>This limitation applies only to the extent permitted by applicable law and does not affect any right or liability that cannot lawfully be excluded or limited.</p>
       </LegalSection>
 
       <LegalSection title="Website availability and changes">
@@ -223,6 +223,7 @@ function TermsOfUse() {
 
       <LegalSection title="Contact and legal review note">
         <p>For questions about these Terms of Use, contact <a href="mailto:hello@pexek.com">hello@pexek.com</a>.</p>
+        <p>These Website Terms are provided for general information and do not replace legal advice or a customer-specific agreement.</p>
         <p>Customer-specific legal and data-processing terms are agreed separately where applicable.</p>
       </LegalSection>
     </>
