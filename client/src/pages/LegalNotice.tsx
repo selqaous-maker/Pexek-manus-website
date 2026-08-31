@@ -1,6 +1,6 @@
 import GlobalEnglishHeader from "@/components/GlobalEnglishHeader";
 
-const EFFECTIVE_DATE = "21 August 2026";
+const EFFECTIVE_DATE = "27 August 2026";
 const SITE_URL = "https://pexek.com";
 
 type LegalType = "privacy" | "terms";
@@ -43,47 +43,98 @@ function LegalFooter() {
 function PrivacyNotice() {
   return (
     <>
-      <p className="legal-lead">For the purposes of this website, PEXEK is a trading name operated by Salah Eddine El Qaous, a Moroccan auto-entrepreneur. Salah Eddine El Qaous is responsible for the handling of personal information submitted through the current PEXEK website and its enquiry routes.</p>
+      <p className="legal-lead">For the current PEXEK website and enquiry routes, Salah Eddine El Qaous, a Moroccan auto-entrepreneur trading as PEXEK, is responsible for the processing described in this notice.</p>
+      <p className="legal-note">This page provides general information and is not legal advice.</p>
+
+      <LegalSection title="Controller identity">
+        <p>Salah Eddine El Qaous, a Moroccan auto-entrepreneur trading as PEXEK, is responsible for the processing described in this notice.</p>
+        <p>Contact email: <a href="mailto:hello@pexek.com">hello@pexek.com</a>.</p>
+      </LegalSection>
+
       <LegalSection title="Scope of this notice">
-        <p>This Privacy Notice explains how PEXEK handles information submitted through the PEXEK website, including the workflow-assessment form and contact routes linked from the website.</p>
-        <p>It covers the current informational website, the assessment form, general enquiries and the downloadable Kitchens &amp; Interior guide. It does not describe future client service workflows, customer portals or production services that are not currently available through this website. Where a customer workflow or service involves additional processing, the applicable service and data-processing arrangements are agreed separately where applicable.</p>
+        <p>This Privacy Notice covers the current informational PEXEK website, the workflow-assessment form, general enquiries, WhatsApp, email and LinkedIn contact links, and downloadable resources.</p>
+        <p>It does not govern future customer production workflows, AI calls, recordings, client databases or end-customer campaigns. Those activities require separate written data-processing arrangements where applicable.</p>
       </LegalSection>
+
       <LegalSection title="Information you may submit">
-        <p>Depending on the route you choose, you may submit information such as your name, business name, email address, phone number, country or region, the source of customer conversations you want to discuss, the workflow problem you want to examine and other information you choose to include in the assessment form or enquiry.</p>
-        <p>Please provide only information that is necessary to identify and understand your request.</p>
+        <p>Depending on the route you choose, PEXEK may receive the following categories of information:</p>
+        <ul>
+          <li><strong>Identity and contact data:</strong> name, business name, email address, phone number, country or region.</li>
+          <li><strong>Business and enquiry data:</strong> industry, enquiry source, approximate enquiry volume and the business problem described.</li>
+          <li><strong>Workflow context:</strong> information about current customer-conversation routes, desired next actions and relevant operating boundaries.</li>
+          <li><strong>Technical and security data:</strong> information needed to deliver, maintain and protect the website.</li>
+          <li><strong>Communication records:</strong> information contained in enquiries and related follow-up communications.</li>
+        </ul>
+        <p>Please provide only information that is necessary to identify and understand your request. Do not submit sensitive or confidential customer data through the form or an initial contact route.</p>
       </LegalSection>
+
       <LegalSection title="Sensitive-information warning">
-        <p>Please do not submit payment-card details, identity-document numbers or copies, medical information, special-category information, confidential customer records, passwords, security credentials or other sensitive information through the assessment form, email or WhatsApp contact route.</p>
+        <p>Do not submit passwords, API keys, payment-card data, government ID numbers, medical or health data, insurance or accident files, confidential customer lists or information you are not authorized to share through the assessment form, email or WhatsApp contact route.</p>
         <p>If your request involves information of this kind, contact PEXEK first at <a href="mailto:hello@pexek.com">hello@pexek.com</a> so that an appropriate channel can be discussed. Do not assume that an initial enquiry channel is suitable for sensitive information.</p>
       </LegalSection>
+
       <LegalSection title="How enquiry information is used">
-        <p>PEXEK may use information submitted through the website to receive and understand your enquiry, assess whether a workflow discussion is relevant to your business context, respond to your request, communicate about the appropriate next step, organize the information needed for an assessment conversation, maintain the security and operation of the website and manage records connected with the enquiry.</p>
-        <p>Submitting an assessment form does not create an agreement to deploy a service, and an assessment request does not itself authorize marketing automation or a customer workflow.</p>
+        <p>PEXEK uses enquiry information primarily to:</p>
+        <ul>
+          <li>receive and understand enquiries;</li>
+          <li>assess the business context;</li>
+          <li>respond to the person;</li>
+          <li>arrange a follow-up conversation;</li>
+          <li>maintain enquiry records;</li>
+          <li>protect website security; and</li>
+          <li>meet legal obligations.</li>
+        </ul>
+        <p>An enquiry does not authorize PEXEK to run an automated marketing campaign or customer workflow.</p>
       </LegalSection>
-      <LegalSection title="Formspree and separate communication platforms">
-        <p>Formspree processes workflow-assessment submissions for delivery to PEXEK so that PEXEK can receive and respond to the enquiry.</p>
-        <p>Email, WhatsApp and LinkedIn are separate communication or external platforms. If you choose to use one of these links, your interaction may also be subject to the relevant platform’s own terms and privacy information. PEXEK does not control the privacy practices of those external platforms.</p>
-        <p>The Kitchens &amp; Interior guide is provided directly from the website and does not require an additional form submission.</p>
+
+      <LegalSection title="Legal basis">
+        <p>Depending on the applicable law and context, PEXEK may rely on the person&apos;s consent when submitting the workflow-assessment form, the steps necessary to respond to a request, legitimate interests in managing a business enquiry and protecting the website, or a legal obligation. PEXEK does not treat submission of an enquiry as consent to automated marketing.</p>
       </LegalSection>
-      <LegalSection title="Technical information and cookies">
-        <p>No approved analytics or advertising tracking is currently deployed on the website. Essential hosting and security processing may occur to deliver, maintain and protect the website.</p>
+
+      <LegalSection title="Formspree and external providers">
+        <p>Formspree processes form submissions on behalf of PEXEK so that PEXEK can receive and respond to enquiries. Formspree and other service providers may process information outside Morocco. PEXEK will use the relevant contractual, organizational and legal safeguards applicable to the processing.</p>
+        <p>PEXEK may use third-party providers for hosting, form delivery, communications, telephony, AI processing, messaging, calendars and workflow infrastructure. The applicable providers, processing locations and safeguards depend on the specific service and will be documented in the relevant customer agreement where applicable.</p>
+        <p>Email, WhatsApp and LinkedIn are separate communication or external platforms. If you choose to use one of these links, your interaction may also be subject to the relevant platform&apos;s own terms and privacy information.</p>
       </LegalSection>
-      <LegalSection title="Service providers and future workflows">
-        <p>PEXEK may use service providers necessary to operate the current website and deliver assessment submissions to PEXEK.</p>
-        <p>If PEXEK later provides a customer-specific workflow or service involving additional personal-data processing, the service scope, responsibilities and applicable data-processing arrangements will be agreed separately where applicable.</p>
+
+      <LegalSection title="International transfers">
+        <p>Where personal information is processed or stored outside Morocco, PEXEK will review the applicable transfer requirements and safeguards. Where required, PEXEK will pursue the relevant notification, authorization, contractual or other legal mechanism.</p>
       </LegalSection>
+
+      <LegalSection title="Sharing">
+        <p>PEXEK does not sell personal information. Information may be shared only with:</p>
+        <ul>
+          <li>service providers needed to operate the website or deliver an enquiry;</li>
+          <li>professional advisers where necessary; and</li>
+          <li>authorities where legally required.</li>
+        </ul>
+      </LegalSection>
+
       <LegalSection title="Retention">
-        <p>Enquiry information is retained only for as long as reasonably necessary to review and respond to the request, manage related communications, maintain appropriate records and meet applicable legal obligations. PEXEK deletes or securely disposes of enquiry information when it is no longer required for these purposes, subject to applicable legal obligations.</p>
+        <p>Website enquiry records are normally deleted or anonymised within 12 months after the last relevant communication, unless a longer period is required for legal, security, dispute-resolution or legitimate business-record purposes. PEXEK will delete or securely dispose of information when it is no longer required.</p>
       </LegalSection>
+
+      <LegalSection title="Security">
+        <p>PEXEK uses reasonable administrative, technical and organizational measures appropriate to the nature of the information, including access limitation, secure transmission where available, account security controls and deletion practices. No internet transmission or third-party service can be guaranteed to be completely secure.</p>
+      </LegalSection>
+
       <LegalSection title="Your rights">
-        <p>Depending on the applicable law and the circumstances of the processing, you may have the right to request access to personal information concerning you, request rectification of inaccurate information and object to certain processing.</p>
-        <p>Any additional right is subject to the applicable law and circumstances. To make a privacy enquiry or rights request, contact <a href="mailto:hello@pexek.com">hello@pexek.com</a>. PEXEK may need enough information to understand and verify the request before responding.</p>
+        <p>Depending on applicable law, a person may request access, correction, objection, deletion, restriction or portability. PEXEK may need to verify identity before responding. PEXEK does not promise that every right applies in every jurisdiction or circumstance.</p>
+        <p>To make a privacy enquiry or rights request, contact <a href="mailto:hello@pexek.com">hello@pexek.com</a>.</p>
+        <p>For Morocco-related data-protection questions or complaints, visitors may contact the <a href="https://www.cndp.ma/" target="_blank" rel="noopener noreferrer">CNDP through its official website</a>.</p>
       </LegalSection>
-      <LegalSection title="Privacy enquiries">
-        <p>For questions about this notice or information submitted through the website, contact <a href="mailto:hello@pexek.com">hello@pexek.com</a>.</p>
-        <p>Please do not send sensitive personal information in the first email unless PEXEK has confirmed that the channel is appropriate.</p>
+
+      <LegalSection title="Technical information and cookies">
+        <p>No approved analytics or advertising tracking is currently deployed on this website. If only essential hosting or security cookies are used, they may support the delivery, maintenance and protection of the website. No analytics, advertising pixel, session replay or marketing tag should be treated as deployed unless this notice is updated to describe it accurately.</p>
       </LegalSection>
-      <LegalSection title="Changes to this notice">
+
+        <LegalSection title="Future production workflows">
+        <p>Where PEXEK provides a customer-specific workflow involving calls, recordings, transcripts, WhatsApp conversations, leads or other customer data, the client-specific MSA, DPA, Order Form, Campaign Approval Form and applicable disclosure policy will govern that processing.</p>
+        <p>PEXEK&apos;s public website and any client platform are separate environments. Where a client platform is provided, access is governed by the applicable Master Services Agreement, Order Form, Client Data Processing Agreement, Campaign Approval Form and platform terms. This website Privacy Notice does not replace those customer-specific documents.</p>
+      </LegalSection>
+
+      <LegalSection title="Privacy enquiries and changes">
+        <p>For questions about this notice or information submitted through the website, contact <a href="mailto:hello@pexek.com">hello@pexek.com</a>. Please do not send sensitive personal information in the first email unless PEXEK has confirmed that the channel is appropriate.</p>
         <p>PEXEK may update this Privacy Notice when the website scope, enquiry routes or relevant processing activities change. The current version will be published on this page with its applicable effective date.</p>
       </LegalSection>
     </>
@@ -94,51 +145,85 @@ function TermsOfUse() {
   return (
     <>
       <p className="legal-lead">This website is operated by Salah Eddine El Qaous, a Moroccan auto-entrepreneur trading as PEXEK.</p>
-      <LegalSection title="Website purpose">
-        <p>The PEXEK website provides general information about PEXEK and its managed customer-conversation workflow approach. The website may describe configurable capabilities, workflow examples, industry contexts, contact routes and downloadable resources.</p>
-        <p>Website content is provided to help visitors understand the approach. It does not constitute a service offer, deployment approval or binding statement of scope.</p>
+      <p className="legal-note">This page provides general information and is not legal advice.</p>
+
+      <LegalSection title="Website purpose and scope">
+        <p>The PEXEK website is an informational website for PEXEK, its managed customer-conversation workflow approach, industry examples, downloadable resources and assessment requests.</p>
+        <p>The website does not itself provide a customer account, production AI service, automated calling service, WhatsApp automation, marketing campaign or deployment commitment.</p>
       </LegalSection>
-      <LegalSection title="Eligibility and acceptable use">
+
+      <LegalSection title="Assessment requests">
+        <p>Submitting a form, email, WhatsApp message or LinkedIn message:</p>
+        <ul>
+          <li>does not create a contract;</li>
+          <li>does not authorize automated calls or marketing;</li>
+          <li>does not authorize PEXEK to process a customer database; and</li>
+          <li>does not guarantee a response, acceptance, pilot, availability, result or deployment.</li>
+        </ul>
+      </LegalSection>
+
+      <LegalSection title="Future customer services">
+        <p>Any paid service or customer-specific workflow will be governed by a separate written agreement, Order Form, Campaign Approval Form and, where applicable, Client Data Processing Agreement. Those documents define the actual scope, fees, responsibilities, data-processing arrangements, support commitments and limitations.</p>
+        <p>PEXEK&apos;s public website and client platform are separate environments. The client platform may be available at app.pexek.com or another authorized subdomain. Access to the client platform is governed by the applicable Master Services Agreement, Order Form, Client Data Processing Agreement, Campaign Approval Form and platform terms. This website Privacy Notice does not replace those customer-specific documents.</p>
+      </LegalSection>
+
+      <LegalSection title="Third-party technology">
+        <p>PEXEK may use third-party providers for hosting, form delivery, communications, telephony, AI processing, messaging, calendars and workflow infrastructure. The applicable providers, processing locations and safeguards depend on the specific service and will be documented in the relevant customer agreement where applicable.</p>
+        <p>Third-party providers are separate services. Their availability, policies, security controls, data locations and processing terms may apply to the relevant service. Customer-specific provider details will be documented where applicable.</p>
+      </LegalSection>
+
+      <LegalSection title="Human responsibility and professional decisions">
+        <p>PEXEK workflows do not replace human responsibility for:</p>
+        <ul>
+          <li>pricing and discounts;</li>
+          <li>diagnosis and safety;</li>
+          <li>legal, medical or financial decisions;</li>
+          <li>insurance;</li>
+          <li>technical feasibility;</li>
+          <li>stock and delivery;</li>
+          <li>complaints; and</li>
+          <li>final commercial decisions.</li>
+        </ul>
+      </LegalSection>
+
+      <LegalSection title="Examples and no guarantee">
+        <p>Examples, workflow diagrams, AI capabilities, integrations, response times and industry pages are illustrative and may not be available or suitable for every business.</p>
+        <p>PEXEK does not promise that a particular capability, channel, integration, workflow or outcome will be available for every business. No performance, revenue or deployment guarantee is made through this website.</p>
+      </LegalSection>
+
+      <LegalSection title="Acceptable use">
         <p>You may use the website only for lawful purposes and in a way that does not interfere with its operation, security or availability. You must not attempt to gain unauthorized access, introduce malicious code, misuse a contact route, scrape or reproduce the website in a way that harms its operation, or submit information that you are not authorized to share.</p>
+        <p>Do not submit passwords, API keys, payment-card data, government ID numbers, medical or health data, insurance or accident files, confidential customer lists or information you are not authorized to share.</p>
         <p>You are responsible for ensuring that information you submit is accurate enough for PEXEK to understand your request and that you have the right to provide it.</p>
       </LegalSection>
-      <LegalSection title="Assessment forms and contact requests">
-        <p>Submitting the workflow-assessment form or contacting PEXEK by email, WhatsApp or LinkedIn does not create a service agreement, customer account, deployment commitment or obligation to provide a particular service.</p>
-        <p>PEXEK may review the context provided and decide whether a further conversation is appropriate. No availability, suitability, result, response time or deployment outcome is guaranteed by submitting a request.</p>
-      </LegalSection>
-      <LegalSection title="No automatic service or result guarantee">
-        <p>The website describes possible workflow approaches and configurable capabilities. It does not promise that a particular capability, integration, channel, automation or outcome will be available for every business.</p>
-        <p>Any paid service, workflow scope, fee, implementation responsibility, support arrangement, data-processing activity or customer responsibility must be agreed separately in writing.</p>
-      </LegalSection>
-      <LegalSection title="Human responsibility and professional advice">
-        <p>Information on this website is not legal, medical, financial, technical-feasibility or other professional advice. Business teams retain responsibility for commercial, pricing, technical, medical, legal and other material decisions.</p>
-        <p>Examples and workflow diagrams are illustrative unless expressly stated otherwise. They should not be treated as a guarantee that a particular workflow will be suitable for a business or customer situation.</p>
-      </LegalSection>
+
       <LegalSection title="Intellectual property and permitted website use">
         <p>Unless stated otherwise, the website content, visual identity, text, diagrams, software presentation and downloadable materials are owned by Salah Eddine El Qaous or used with the relevant permission.</p>
-        <p>You may view the website and download the Kitchens &amp; Interior guide for your own internal evaluation. You must not copy, modify, republish, sell, distribute or create a misleadingly similar public presentation from the website content without permission, except where applicable law permits the use.</p>
+        <p>You may view the website and download its resources for your own internal evaluation. You must not copy, modify, republish, sell, distribute or create a misleadingly similar public presentation from the website content without permission, except where applicable law permits the use.</p>
       </LegalSection>
-      <LegalSection title="Downloadable guide">
-        <p>The Kitchens &amp; Interior guide is provided as an informational resource for showroom owners and commercial teams. It is available as a direct download and does not create a service agreement, guarantee a result or replace a discussion about the showroom’s actual process.</p>
-        <p>The workflow examples in the guide are illustrative. The showroom team retains responsibility for feasibility, pricing, stock, delivery, technical design and the next commercial decision.</p>
+
+      <LegalSection title="Website liability">
+        <p>To the maximum extent permitted by applicable law, PEXEK is not liable for indirect, consequential, special or loss-of-profit damages arising solely from use of the informational website.</p>
+        <p>This limitation does not exclude or limit any right or liability that cannot lawfully be excluded or limited.</p>
       </LegalSection>
-      <LegalSection title="Third-party links and services">
-        <p>The website uses or links to third-party services, including Formspree, WhatsApp and LinkedIn. These platforms and providers are separate services and may have their own terms, privacy notices and availability conditions. PEXEK does not adopt or control the terms or privacy practices of external platforms merely by linking to them.</p>
-        <p>Selected underlying technology may be provided by third-party platforms in a future or customer-specific workflow. The respective responsibilities of PEXEK, the customer and selected technology providers are defined in the applicable service and data-processing arrangements.</p>
-      </LegalSection>
+
       <LegalSection title="Website availability and changes">
         <p>PEXEK aims to keep the website useful and available, but the website may be changed, interrupted, suspended or unavailable from time to time because of maintenance, hosting, security, connectivity or other circumstances. No uninterrupted availability is promised.</p>
         <p>PEXEK may update website content, resources and these Terms of Use when the website scope or operating context changes. The current version will be published on this page with its applicable effective date.</p>
       </LegalSection>
-      <LegalSection title="Mandatory-law safeguard">
-        <p>Nothing in these Terms excludes or limits any right or liability that cannot lawfully be excluded or limited.</p>
+
+      <LegalSection title="Governing law">
+        <p>These Website Terms are intended to be governed by the laws of Morocco, subject to any mandatory protections that apply to the visitor in their jurisdiction.</p>
       </LegalSection>
+
       <LegalSection title="Separate written agreements">
         <p>If the operator of PEXEK and a customer later agree to paid services or a customer-specific workflow, the parties will document the applicable scope, fees, responsibilities, support arrangements and data-processing terms separately in writing.</p>
         <p>Those separate arrangements govern the relevant service to the extent they differ from general website information.</p>
       </LegalSection>
-      <LegalSection title="Contact">
+
+      <LegalSection title="Contact and legal review note">
         <p>For questions about these Terms of Use, contact <a href="mailto:hello@pexek.com">hello@pexek.com</a>.</p>
+        <p>Customer-specific legal and data-processing terms are agreed separately where applicable.</p>
       </LegalSection>
     </>
   );
