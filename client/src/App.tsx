@@ -15,7 +15,7 @@ const Solutions = lazy(() => import("./pages/Solutions"));
 const Industries = lazy(() => import("./pages/Industries"));
 const HowItWorks = lazy(() => import("./pages/HowItWorks"));
 const Contact = lazy(() => import("./pages/Contact"));
-const AutomotiveAfterSales = lazy(() => import("./pages/AutomotiveAfterSales"));
+const AutomotiveAfterSales = lazy(() => import("./pages/AutomotiveAfterSales"));\nconst BuildersCircle = lazy(() => import("./pages/BuildersCircle"));
 
 const SITE_URL = "https://pexek.com";
 
@@ -68,7 +68,7 @@ const PAGE_METADATA: Record<string, { title: string; description: string; canoni
     canonical: `${SITE_URL}/contact`,
     indexable: true,
   },
-  "/privacy": {
+  "/form": {\n    title: "Agadir AI & SaaS Builders Circle | PEXEK",\n    description: "Join a small, practical AI and SaaS builders circle in Agadir for founders, developers, marketers and innovators.",\n    canonical: `${SITE_URL}/form`,\n    indexable: true,\n  },\n  "/privacy": {
     title: "Privacy Notice | PEXEK",
     description: "Information about how PEXEK handles workflow assessment requests submitted through this website.",
     canonical: `${SITE_URL}/privacy`,
@@ -135,7 +135,7 @@ function Router() {
       <Route path="/contact" component={Contact} />
       <Route path="/industries/automotive-after-sales" component={AutomotiveAfterSales} />
       <Route path="/industries/kitchens-interior" component={KitchensInterior} />
-      <Route path="/privacy">{() => <LegalNotice type="privacy" />}</Route>
+      <Route path="/form" component={BuildersCircle} />\n      <Route path="/privacy">{() => <LegalNotice type="privacy" />}</Route>
       <Route path="/terms">{() => <LegalNotice type="terms" />}</Route>
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
