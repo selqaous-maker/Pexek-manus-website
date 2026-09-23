@@ -46,7 +46,7 @@ export default function BuildersCircle() {
       <header className="site-header">
         <div className="container flex h-[76px] items-center justify-between">
           <a href="/" className="brand-mark" aria-label="Back to PEXEK homepage">
-            <img src="/assets/pexek-original-logo_3cca9eb7.png" alt="" className="h-10 w-10 object-contain" />
+            <img src="/assets/pexek-original-logo_3cca9eb7.webp" alt="" className="h-10 w-10 object-contain" />
             <span className="brand-wordmark"><strong className="font-display">PEXEK</strong><small>Workflow system</small></span>
           </a>
           <div className="flex items-center gap-4 text-[0.72rem] font-bold uppercase tracking-[0.12em] text-[#52708e]">
@@ -118,7 +118,7 @@ export default function BuildersCircle() {
         </section>
       </main>
 
-      <footer className="bg-[#020718] py-10 text-[#c6d4ce]"><div className="container flex flex-col gap-8 md:flex-row md:items-end md:justify-between"><div><a href="/" className="flex items-center gap-2 text-white"><img src="/assets/pexek-original-logo_3cca9eb7.png" alt="" className="size-8" /><span className="font-display font-semibold tracking-[-0.05em]">PEXEK</span></a><p className="mt-3 max-w-sm text-sm leading-6 text-[#9caea7]">Managed customer-conversation workflows with approved knowledge and human control.</p></div><div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-[#aebdb7]"><a href="/">PEXEK home</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:hello@pexek.com">hello@pexek.com</a><span>© {new Date().getFullYear()} PEXEK</span></div></div></footer>
+      <footer className="bg-[#020718] py-10 text-[#c6d4ce]"><div className="container flex flex-col gap-8 md:flex-row md:items-end md:justify-between"><div><a href="/" className="flex items-center gap-2 text-white"><img src="/assets/pexek-original-logo_3cca9eb7.webp" alt="" className="size-8" /><span className="font-display font-semibold tracking-[-0.05em]">PEXEK</span></a><p className="mt-3 max-w-sm text-sm leading-6 text-[#9caea7]">Managed customer-conversation workflows with approved knowledge and human control.</p></div><div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-[#aebdb7]"><a href="/">PEXEK home</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:hello@pexek.com">hello@pexek.com</a><span>© {new Date().getFullYear()} PEXEK</span></div></div></footer>
     </div>
   );
 }
