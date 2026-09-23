@@ -1,17 +1,10 @@
 import { useState, type FormEvent } from "react";
 import { ArrowRight, ArrowUpRight, Check, MapPin, Sparkles, UsersRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { usePageMetadata } from "@/hooks/usePageMetadata";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xkodykaj";
 
 export default function BuildersCircle() {
-  usePageMetadata({
-    title: "Agadir AI & SaaS Builders Circle | PEXEK",
-    description: "Join a small, practical AI and SaaS builders circle in Agadir for founders, developers, marketers and innovators.",
-    canonical: "https://pexek.com/form",
-  });
-
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [error, setError] = useState("");
 
