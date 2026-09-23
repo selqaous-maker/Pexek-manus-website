@@ -40,6 +40,10 @@
       "destination": "/"
     },
     {
+      "source": "/form",
+      "destination": "/"
+    },
+    {
       "source": "/privacy",
       "destination": "/"
     },
